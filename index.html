@@ -1,0 +1,1050 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ifeoluwa Olatunde is a Senior Product Designer in Lagos, Nigeria, designing payments, onboarding and treasury products.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:title" content="Ifeoluwa Olatunde · Product Designer">
+<meta property="og:description" content="Senior Product Designer in Lagos, Nigeria. Payments, merchant onboarding, FX and treasury.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316181C'/%3E%3Ctext x='11' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%23FAFAF8'%3EIO%3C/text%3E%3Ccircle cx='52' cy='40' r='4' fill='%238BAA3C'/%3E%3C/svg%3E">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Ifeoluwa Olatunde</title>
+<script>
+/* Motion is opt-in: the page is fully visible without it. */
+(function () {
+  var r = document.documentElement;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) r.classList.add('anim', 'loading');
+  /* Safety net: if anything stalls, drop all motion states so the page is never left covered. */
+  setTimeout(function () { if (!r.classList.contains('landed')) r.classList.remove('anim', 'loading'); }, 9000);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap">
+<style>
+/* Layout: one 1200px column of hairline-ruled rows. Type carries the page; colour lives only in the four case visuals. */
+:root {
+  --bg: #FFFFFF;
+  --band: #F8F7F5;
+  --ink: #16181C;
+  --ink-hero: #000000;
+  --ink-title: #22231F;
+  --body: #3F413C;
+  --body-soft: #4A4B46;
+  --muted: #6B6D66;
+  --quiet: #8A8C85;
+  --nav: #4B4F58;
+  --link: #2A2B27;
+  --company: #4B4D47;
+  --rule: #DEDDD8;
+  --rule-faint: #EEEDEA;
+  --rule-soft: #E9E9E7;
+  --rule-band: #CFCEC8;
+  --rule-foot: #DAD9D4;
+  --accent: #8BAA3C;
+  --accent-ink: #5E7A1E;
+  --on-ink: #FAFAF8;
+  --ld-line: #C6C5BF;
+  --cue-track: #DDDDDD;
+
+  --f-display: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+  --f-text: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  --expo: cubic-bezier(.16, 1, .3, 1);
+  --inout: cubic-bezier(.76, 0, .24, 1);
+  --g: 16px;
+  color-scheme: light;
+}
+@media (min-width: 720px) { :root { --g: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+html.loading { overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-text);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--bg);
+}
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3, ol { margin: 0; }
+ol { padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; border-radius: 2px; }
+
+.sec {
+  padding-left: max(var(--g), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--g), env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1200px; margin-inline: auto; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sq { display: inline-block; width: .14em; height: .14em; margin-left: .05em; background: var(--accent); }
+
+/* ───────── Loader ───────── */
+.loader {
+  position: fixed; inset: 0; z-index: 100; display: none; overflow: hidden;
+  align-items: center; justify-content: center;
+  background: var(--bg);
+}
+html.anim .loader { display: flex; animation: ld-safety 1ms 10s forwards; }
+@keyframes ld-safety { to { visibility: hidden; } }
+.ld-row {
+  display: flex; align-items: center; justify-content: center;
+  font: 400 clamp(13px, 1.2vw, 20px)/1.2 var(--f-text);
+  letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; color: var(--ink);
+}
+.ld-word { display: block; overflow: hidden; padding-block: .2em; }
+.ld-word > span { display: block; transform: translateY(130%); }
+.ld-line { flex: none; width: 0; height: 1px; margin-inline: 1.7em; background: var(--ld-line); }
+.ld-row { position: relative; z-index: 1; }
+.ld-half { display: none; position: absolute; left: 0; right: 0; background: var(--bg); will-change: transform; }
+.ld-top { top: 0; }
+.ld-bot { bottom: 0; }
+.ld-half::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: var(--ld-line); }
+.ld-top::after { bottom: 0; }
+.ld-bot::after { top: 0; }
+.loader.is-split { background: transparent; }
+.loader.is-split .ld-half { display: block; }
+.loader.is-split .ld-half::after { animation: ld-line-fade 850ms ease-in-out 420ms forwards; }
+@keyframes ld-line-fade { to { opacity: 0; } }
+.ld-morph { position: fixed; z-index: 101; height: 1px; background: var(--ld-line); transform-origin: 0 0; pointer-events: none; }
+
+/* ───────── Reveal system (only when motion is on) ───────── */
+.r-up { transition: opacity .9s ease var(--d, 0ms), transform 1.1s var(--expo) var(--d, 0ms); }
+html.anim [data-r]:not(.in) .r-up,
+html.anim .r-up[data-r]:not(.in) { opacity: 0; transform: translateY(28px); }
+
+.rule { height: 1px; background: var(--rule); transform-origin: 0 50%; transition: transform 1.3s var(--inout) var(--d, 0ms); }
+html.anim [data-r]:not(.in) .rule,
+html.anim .rule[data-r]:not(.in) { transform: scaleX(0); }
+
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .07em .16em 0; margin: 0 -.07em -.16em 0; }
+.wi { display: inline-block; transition: transform 1.15s var(--expo); transition-delay: calc(var(--l, 0) * var(--st, 90ms) + var(--d, 0ms)); }
+html.anim [data-r]:not(.in) .wi { transform: translateY(115%); }
+.chars { overflow: hidden; padding-block: .14em; margin-block: -.14em; }
+.chars .cw { display: inline-block; white-space: nowrap; }
+.chars .w { overflow: visible; padding: 0; margin: 0; vertical-align: baseline; }
+.wi .sq { vertical-align: baseline; }
+
+.pop { transition: transform .7s var(--expo) var(--d, 600ms); }
+html.anim [data-r]:not(.in) .pop { transform: scale(0) rotate(-90deg); }
+
+/* ───────── Links ───────── */
+.lnk {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 0; font-size: 16px; color: var(--link);
+}
+.lnk::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: #4A4B46; transform-origin: 100% 50%;
+}
+.arr { position: relative; display: inline-block; width: 12px; height: 12px; overflow: hidden; flex: none; }
+.arr svg { position: absolute; inset: 0; width: 12px; height: 12px; transition: transform .45s var(--expo); }
+.arr svg + svg { transform: translate(-110%, 110%); }
+@media (hover: hover) {
+  .lnk:hover::after { animation: redraw .7s var(--inout); }
+  .lnk:hover .arr svg:first-child { transform: translate(110%, -110%); }
+  .lnk:hover .arr svg + svg { transform: none; }
+}
+@keyframes redraw {
+  0% { transform: scaleX(1); transform-origin: 100% 50%; }
+  45% { transform: scaleX(0); transform-origin: 100% 50%; }
+  46% { transform: scaleX(0); transform-origin: 0 50%; }
+  100% { transform: scaleX(1); transform-origin: 0 50%; }
+}
+
+/* ───────── Header ───────── */
+.hdr {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); transition: transform .6s var(--expo), box-shadow .4s ease;
+}
+.hdr.is-floating { box-shadow: 0 1px 0 var(--rule-faint), 0 12px 32px -20px rgba(22, 24, 28, .18); }
+.hdr.is-hidden { transform: translateY(-102%); }
+.hdr-in {
+  max-width: 1184px; margin-inline: auto; padding-block: 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px 24px;
+}
+.logo {
+  display: inline-flex; align-items: baseline; gap: 3px; padding: 8px 0;
+  font: 600 28px/1.2 var(--f-display); letter-spacing: -.02em; color: var(--ink);
+}
+.logo i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transition: transform .5s var(--expo); }
+.logo:hover i { transform: scale(1.7); }
+.nav { display: flex; gap: clamp(14px, 2.25vw, 32px); font: 400 13px/1.5 var(--f-display); }
+.nav a { position: relative; padding: 12px 0; color: var(--nav); transition: color .3s; }
+.nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 1px; background: var(--ink);
+  transform: scaleX(0); transform-origin: 100% 50%; transition: transform .5s var(--expo);
+}
+.nav a:hover { color: var(--ink); }
+.nav a:hover::after { transform: scaleX(1); transform-origin: 0 50%; }
+html.anim .hdr [data-h] { opacity: 0; transform: translateY(-14px); }
+html.anim.ready .hdr [data-h] {
+  opacity: 1; transform: none;
+  transition: opacity .8s ease calc(var(--i) * 70ms + 350ms), transform 1s var(--expo) calc(var(--i) * 70ms + 350ms), color .3s;
+}
+
+/* ───────── Hero ───────── */
+.hero { display: flex; flex-direction: column; min-height: calc(100vh - 90px); min-height: calc(100svh - 90px); padding-bottom: 40px; }
+.hero-in { flex: 1; width: 100%; max-width: 994px; margin-inline: auto; display: flex; flex-direction: column; }
+.hero h1 {
+  font: 400 clamp(38px, 6.1vw, 88px)/1.14 var(--f-display);
+  letter-spacing: -.025em; color: var(--ink-hero);
+  margin-block: auto; padding-block: 40px 7vh;
+}
+.hero h1 strong { font-weight: 700; }
+.cue {
+  display: flex; flex-direction: column; align-items: center; gap: 12px; flex: none; margin: 0 auto;
+  transition: opacity .8s ease 1.3s;
+}
+.cue em { font: 400 11px/1 var(--f-text); font-style: normal; letter-spacing: .18em; margin-right: -.18em; text-transform: uppercase; color: var(--muted); }
+.cue i { display: block; position: relative; width: 2px; height: 27px; background: var(--cue-track); overflow: hidden; }
+.cue i::after { content: ""; position: absolute; inset: 0; background: var(--ink-hero); transform: translateY(-50%); }
+html.anim .cue i::after { animation: cue 2.2s var(--inout) infinite; }
+/* the label rides the same 2.2s cycle: it dips and darkens as the dark segment reaches the bottom of the line */
+html.anim .cue em { animation: cue-label 2.2s var(--inout) infinite; }
+html.anim [data-r]:not(.in) .cue { opacity: 0; }
+@keyframes cue { 0% { transform: translateY(-101%); } 55%, 100% { transform: translateY(101%); } }
+@keyframes cue-label {
+  0%, 30% { transform: none; color: var(--muted); }
+  55% { transform: translateY(4px); color: var(--ink-hero); }
+  85%, 100% { transform: none; color: var(--muted); }
+}
+
+/* ───────── At a glance ───────── */
+.glance { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-block: 96px; scroll-margin-top: 0; }
+.glance > .wrap { width: 100%; }
+/* the second screen locks in place while its statement inks in, then releases */
+.glance-pin { position: relative; scroll-margin-top: 0; }
+html.anim .glance-pin { height: calc(200vh + 110vh); height: calc(200svh + 110vh); z-index: 1; background: var(--bg); }
+html.anim .cases { position: relative; z-index: 2; background: var(--bg); margin-top: -100vh; margin-top: -100svh; }   /* slides over the pinned second screen */
+.intro { position: relative; }
+html.anim .hero { position: sticky; top: 90px; z-index: 0; }   /* hero holds still; the second screen slides over it */
+.glance { background: var(--bg); }
+html.anim .glance { position: sticky; top: 0; }
+@media (max-height: 620px) { html.anim .glance-pin { height: auto; } html.anim .glance { position: static; } html.anim .cases { margin-top: 0; } }
+.hero-in { will-change: transform, opacity; }
+.glance-row { display: flex; flex-wrap: wrap; gap: 28px 64px; }
+.glance-row > .eyebrow { flex: 0 0 220px; }
+.glance-main { flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.statement {
+  font: 400 clamp(28px, 3.35vw, 48px)/1.28 var(--f-display);
+  letter-spacing: -.025em; color: var(--quiet); text-wrap: pretty;
+}
+.statement strong { font-weight: 600; color: var(--ink); }
+.sw { transition: opacity .25s linear; }
+.cnt { display: inline-block; font-variant-numeric: tabular-nums; }
+.glance .rule.faint { background: var(--rule-faint); }
+.statement .gw { display: inline-block; }
+.with { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px 40px; padding-top: 28px; }
+.with .eyebrow { flex: 0 0 auto; min-width: 100px; white-space: nowrap; }
+.co {
+  position: relative; padding: 4px 0; border: 0; background: none; cursor: pointer;
+  font: 600 22px/1.3 var(--f-display); letter-spacing: -.02em; color: var(--company);
+  transition: color .35s ease, opacity .35s ease;
+}
+.co::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: var(--ink);
+  transform: scaleX(0); transform-origin: 100% 50%; transition: transform .5s var(--expo);
+}
+.with.has-active .co { opacity: .35; }
+.with.has-active .co.on { opacity: 1; color: var(--ink); }
+.co.on::after { transform: scaleX(1); transform-origin: 0 50%; }
+.co:focus-visible { outline-offset: 2px; }
+
+/* ───────── Case studies ───────── */
+.cases { padding-block: 104px 120px; scroll-margin-top: 0; }
+.cases-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; padding-bottom: 48px; }
+.cases-head h2 { font: 500 clamp(36px, 4.6vw, 64px)/1 var(--f-text); letter-spacing: -.05em; color: var(--ink-title); }
+.case-body { display: flex; flex-wrap: wrap; gap: 32px 64px; padding-block: 48px; }
+.vis {
+  position: relative; display: block; flex: 1.5 1 480px; min-width: 0; max-width: 100%;
+  aspect-ratio: 686 / 420; border-radius: 4px; overflow: hidden; background: var(--tint);
+  clip-path: inset(0 0 0 0 round 4px);
+  transition: clip-path 1.3s var(--inout) var(--d, 0ms);
+}
+.vis-zoom { display: block; width: 100%; height: 100%; transition: transform 1.4s var(--expo); }
+.vis img { display: block; width: 100%; height: 100%; object-fit: cover; transform: translate3d(0, var(--py, 0px), 0) scale(1.07); will-change: transform; }
+html.anim [data-r]:not(.in) .vis { clip-path: inset(0 0 100% 0 round 4px); }
+html.anim [data-r]:not(.in) .vis-zoom { transform: scale(1.22); }
+@media (hover: hover) { .vis:hover .vis-zoom { transform: scale(1.04); } }
+.case-txt { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 32px; }
+.case-top { display: flex; flex-direction: column; gap: 16px; }
+.case-num { font-size: 14px; color: var(--muted); }
+.case-txt h3 { font: 600 32px/1.2 var(--f-display); letter-spacing: -.025em; color: var(--ink); text-wrap: balance; }
+.case-txt h3 a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .6s var(--expo); }
+.case:hover .case-txt h3 a { background-size: 100% 1px; }
+.case-desc { font-size: 17px; line-height: 1.75; color: var(--body); max-width: 60ch; }
+.more { display: flex; justify-content: center; padding-top: 56px; }
+.btn {
+  position: relative; display: inline-flex; align-items: center; gap: 10px; overflow: hidden;
+  min-height: 56px; padding: 0 28px; border-radius: 999px;
+  background: var(--ink); color: var(--on-ink); font-size: 16px; font-weight: 500;
+  transition: transform .5s var(--expo);
+}
+.btn::before {
+  content: ""; position: absolute; inset: 0; background: var(--accent-ink);
+  transform: translateY(101%); border-radius: 50% 50% 0 0 / 100% 100% 0 0; transition: transform .6s var(--expo), border-radius .6s var(--expo);
+}
+.btn > * { position: relative; }
+.btn svg { transition: transform .5s var(--expo); }
+@media (hover: hover) {
+  .btn:hover::before { transform: none; border-radius: 0; }
+  .btn:hover svg { transform: translateX(4px); }
+}
+
+/* ───────── How I work ───────── */
+.how { background: var(--band); padding-block: 120px; }
+.how-in { display: flex; flex-direction: column; gap: 64px; }
+.how-head { display: flex; flex-wrap: wrap; gap: 24px 64px; }
+.how-head .eyebrow { flex: 1 1 300px; max-width: 372px; }
+.how-head h2 { flex: 2 1 560px; min-width: 0; font: 400 clamp(28px, 3.2vw, 44px)/1.25 var(--f-display); letter-spacing: -.025em; color: var(--ink); }
+.how-head h2 strong { font-weight: 700; }
+.principles { display: flex; flex-wrap: wrap; gap: 48px; }
+.principle { position: relative; flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.principle .rule { background: var(--rule-band); margin-bottom: 14px; }
+.principle::before {
+  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 1px; background: var(--ink); z-index: 1;
+  transform: scaleX(0); transform-origin: 100% 50%; transition: transform .7s var(--expo);
+}
+@media (hover: hover) { .principle:hover::before { transform: scaleX(1); transform-origin: 0 50%; } }
+.principle .n { font-size: 14px; color: var(--accent-ink); }
+.principle h3 { font: 600 22px/1.3 var(--f-display); letter-spacing: -.015em; }
+.principle p:last-child { font-size: 16px; line-height: 1.75; color: var(--body); }
+
+/* ───────── Experience ───────── */
+.exp { padding-top: 120px; scroll-margin-top: 40px; }
+.exp-in { display: flex; flex-wrap: wrap; gap: 32px 64px; }
+.exp-side { flex: 1 1 300px; max-width: 372px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.roles { flex: 2 1 560px; min-width: 0; }
+.role .rule { background: var(--rule-soft); }
+.role-row {
+  display: grid; grid-template-columns: minmax(0, 275fr) minmax(0, 310fr) auto; gap: 6px 32px;
+  padding-block: 24px; font-size: 17px;
+}
+.role-row b { font-weight: 500; color: var(--ink); }
+.role-row span { color: var(--body); }
+.role-row b, .role-row span { display: block; transition: transform .6s var(--expo); }
+.role-row time { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 115px; text-align: right; transition: color .3s; }
+@media (hover: hover) {
+  .role:hover .role-row b, .role:hover .role-row span { transform: translateX(10px); }
+  .role:hover time { color: var(--ink); }
+}
+@media (max-width: 720px) {
+  .role-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .role-row span { grid-row: 2; grid-column: 1 / -1; }
+  .role-row time { min-width: 0; }
+}
+
+/* ───────── Footer ───────── */
+.foot { padding-block: clamp(110px, 12.5vw, 180px) clamp(96px, 11vw, 160px); scroll-margin-top: 0; }
+.foot h2 { max-width: 15ch; font: 500 clamp(44px, 7.2vw, 104px)/1.02 var(--f-text); letter-spacing: -.055em; color: var(--ink-title); text-wrap: balance; --st: 18ms; }
+.foot h2 .sq { width: .13em; height: .13em; }
+.foot .rule { background: var(--rule-foot); margin-top: 72px; }
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px 32px; padding-top: 40px; }
+.foot-row > p { max-width: 500px; font-size: 18px; line-height: 1.85; color: var(--body-soft); }
+.foot-links { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 36px; }
+.credit { border-top: 1px solid var(--rule-foot); padding-block: 40px; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* ───────── Stacked full-screen panels (How I work → Experience → Footer) ───────── */
+.stack { position: relative; }
+html.panels .panel { position: sticky; top: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+html.panels .panel > .wrap { width: 100%; }
+html.panels .how { z-index: 3; padding-block: 72px; }
+html.panels .exp { z-index: 4; background: var(--bg); padding-block: 72px; }
+html.panels .foot-panel { z-index: 5; background: var(--bg); }
+html.panels .foot-panel .foot { flex: 1; display: flex; align-items: center; padding-block: 72px 48px; }
+html.panels .foot-panel .foot > .wrap { width: 100%; }
+html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(22, 24, 28, .12); }
+
+/* ───────── Cursor badge + toast ───────── */
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  width: 92px; height: 92px; margin: -46px 0 0 -46px; border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  background: var(--ink); color: var(--on-ink); font-size: 13px; line-height: 1.2; letter-spacing: .01em;
+  transform: translate3d(var(--x, -200px), var(--y, -200px), 0) scale(var(--s, 0));
+  will-change: transform;
+}
+@media not (hover: hover) { .cursor { display: none; } }
+.toast {
+  position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); z-index: 50;
+  padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font-size: 14px; white-space: nowrap;
+  transform: translate(-50%, 24px); opacity: 0; pointer-events: none;
+  transition: transform .6s var(--expo), opacity .4s ease;
+}
+.toast.on { transform: translate(-50%, 0); opacity: 1; }
+</style>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-half ld-top"></div>
+  <div class="ld-half ld-bot"></div>
+  <div class="ld-row">
+    <span class="ld-word"><span>Ifeoluwa</span></span>
+    <span class="ld-line"></span>
+    <span class="ld-word"><span>Olatunde</span></span>
+  </div>
+</div>
+
+<header class="hdr sec" id="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#top" aria-label="Ifeoluwa Olatunde, home" data-h style="--i:0">IO<i></i></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about" data-h style="--i:1">About</a>
+      <a href="#case-studies" data-h style="--i:2">Case Studies</a>
+      <a href="#experience" data-h style="--i:3">Work</a>
+      <a href="#side-projects" data-soon data-h style="--i:4">Side Projects</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="intro">
+  <section class="hero sec" data-r data-hero>
+    <div class="hero-in">
+      <h1 class="split"><strong>Ifeoluwa Olatunde</strong> is a Senior Product Designer in Lagos, Nigeria.</h1>
+      <span class="cue" aria-hidden="true"><i></i><em>Scroll</em></span>
+    </div>
+  </section>
+
+  <div class="glance-pin" id="about">
+  <section class="glance sec" data-r>
+    <div class="wrap">
+      <div class="glance-row">
+        <p class="eyebrow r-up">At a glance</p>
+        <div class="glance-main">
+          <p class="statement r-up" id="statement" aria-live="polite" style="--d:120ms"><strong>7+ years</strong> designing for fintech. <strong><span class="cnt" data-to="93.78" data-dec="2" data-suffix="%">93.78%</span></strong> of merchants now finish verification. A product line that reached <strong>₦1B</strong> in nine months. And a settlement engine that cut tracing from <strong>two days to under an hour.</strong></p>
+          <div>
+            <div class="rule faint" style="--d:250ms"></div>
+            <div class="with" id="with">
+              <span class="eyebrow r-up" style="--d:300ms">Worked with</span>
+              <button type="button" class="co r-up" data-co="payaza" aria-pressed="false" style="--d:380ms">Payaza Africa</button>
+              <button type="button" class="co r-up" data-co="format3" aria-pressed="false" style="--d:460ms">Format 3</button>
+              <button type="button" class="co r-up" data-co="parthian" aria-pressed="false" style="--d:540ms">Parthian Partners</button>
+              <button type="button" class="co r-up" data-co="woven" aria-pressed="false" style="--d:620ms">Woven Finance</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  </div>
+
+  <section class="cases sec" id="case-studies">
+    <div class="wrap">
+      <div class="cases-head" data-r>
+        <h2 class="split">Selected case studies<span class="sq pop keep"></span></h2>
+        <span class="r-up" style="--d:250ms"><a class="lnk" href="#all-case-studies" data-soon>All case studies <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+      </div>
+
+      <article class="case" data-r>
+        <div class="rule"></div>
+        <div class="case-body">
+          <a class="vis" href="#settlement" data-soon data-cursor="View case study" aria-label="The Settlement Control Room case study" style="--tint:#2E1A47"><span class="vis-zoom"><img src="assets/home-settlement.jpg" width="1372" height="840" alt="Payaza merchant dashboard, Settlements page listing aggregating settlements"></span></a>
+          <div class="case-txt">
+            <div class="case-top">
+              <p class="case-num r-up" style="--d:250ms">01 — Payaza · Finance operations</p>
+              <h3 class="r-up" style="--d:330ms"><a href="#settlement" data-soon>The Settlement Control Room</a></h3>
+              <p class="case-desc r-up" style="--d:410ms">Designing the internal infrastructure that gives Finance clarity, authority and confidence over money in transit.</p>
+            </div>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="#settlement" data-soon>Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-r>
+        <div class="rule"></div>
+        <div class="case-body">
+          <a class="vis" href="#compliance" data-soon data-cursor="View case study" aria-label="Rethinking Payaza’s compliance case study" style="--tint:#E6DCCB"><span class="vis-zoom"><img src="assets/home-compliance.jpg" width="1372" height="840" loading="lazy" alt="Research wall of sticky notes from sales, compliance, ops and merchant interviews, with the key insight circled"></span></a>
+          <div class="case-txt">
+            <div class="case-top">
+              <p class="case-num r-up" style="--d:250ms">02 — Payaza · Merchant onboarding</p>
+              <h3 class="r-up" style="--d:330ms"><a href="#compliance" data-soon>Rethinking Payaza’s compliance</a></h3>
+              <p class="case-desc r-up" style="--d:410ms">From burden to brilliance - replacing a one-size-fits-all review with a graduated, risk-tiered model so good merchants stop stalling in compliance.</p>
+            </div>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="#compliance" data-soon>Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-r>
+        <div class="rule"></div>
+        <div class="case-body">
+          <a class="vis" href="#contact" data-cursor="Request a walkthrough" aria-label="Request a walkthrough of Merchant verification" style="--tint:#D3E4F2"><span class="vis-zoom"><img src="assets/home-merchant.jpg" width="1372" height="840" loading="lazy" alt="Verification funnel chart: completion at each KYC step before and after the redesign, ending at 93.78%"></span></a>
+          <div class="case-txt">
+            <div class="case-top">
+              <p class="case-num r-up" style="--d:250ms">03 — Fintech · Onboarding</p>
+              <h3 class="r-up" style="--d:330ms"><a href="#contact">Merchant verification</a></h3>
+              <p class="case-desc r-up" style="--d:410ms">Redesigning KYC for businesses so more merchants make it from sign up to their first payment.</p>
+            </div>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="#contact">Request a walkthrough <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-r>
+        <div class="rule"></div>
+        <div class="case-body">
+          <a class="vis" href="#contact" data-cursor="Request a walkthrough" aria-label="Request a walkthrough of Liquidity management and rail automation" style="--tint:#EBCFC7"><span class="vis-zoom"><img src="assets/home-liquidity.jpg" width="1372" height="840" loading="lazy" alt="Team chat in #treasury-ops: a low-balance alert proposes a sweep to Fidelity and a teammate approves it"></span></a>
+          <div class="case-txt">
+            <div class="case-top">
+              <p class="case-num r-up" style="--d:250ms">04 — Payaza · Treasury</p>
+              <h3 class="r-up" style="--d:330ms"><a href="#contact">Liquidity management &amp; rail automation</a></h3>
+              <p class="case-desc r-up" style="--d:410ms">Real-time balance visibility across settlement banks, fund sweeps with maker–checker approvals, and rule-based rail configuration — one calm place for operations to keep money where it needs to be.</p>
+            </div>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="#contact">Request a walkthrough <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          </div>
+        </div>
+        <div class="rule" style="--d:200ms"></div>
+      </article>
+
+      <div class="more" data-r>
+        <span class="r-up"><a class="btn" id="moreBtn" href="#all-case-studies" data-soon><span>See more case studies</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="stack" id="stack">
+  <section class="how sec panel" id="how">
+    <div class="wrap how-in">
+      <div class="how-head" data-r>
+        <p class="eyebrow r-up">How I work</p>
+        <h2 class="split" style="--st:70ms">Payments are trust made visible. I love to make <strong>every state of the money</strong> understandable — especially when something goes wrong.</h2>
+      </div>
+      <div class="principles" data-r>
+        <div class="principle">
+          <div class="rule"></div>
+          <p class="n r-up" style="--d:150ms">01</p>
+          <h3 class="r-up" style="--d:220ms">Design the failure path first</h3>
+          <p class="r-up" style="--d:290ms">Timeouts, reversals and pending settlements are where trust is won or lost. I map recovery before polish.</p>
+        </div>
+        <div class="principle">
+          <div class="rule" style="--d:140ms"></div>
+          <p class="n r-up" style="--d:290ms">02</p>
+          <h3 class="r-up" style="--d:360ms">Reveal complexity gradually</h3>
+          <p class="r-up" style="--d:430ms">Progressive disclosure is a thing I have mastered. It helps me reveal to the user what steps are important without hiding what matters.</p>
+        </div>
+        <div class="principle">
+          <div class="rule" style="--d:280ms"></div>
+          <p class="n r-up" style="--d:430ms">03</p>
+          <h3 class="r-up" style="--d:500ms">Strategy and craft, together</h3>
+          <p class="r-up" style="--d:570ms">I lead with product thinking and still ship pixels — working side by side with Engineering, Product, CX and Marketing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp sec panel" id="experience">
+    <div class="wrap exp-in" data-r>
+      <div class="exp-side">
+        <p class="eyebrow r-up">Experience</p>
+        <span class="r-up" style="--d:120ms"><a class="lnk" data-link="linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener">See more on LinkedIn <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+      </div>
+      <ol class="roles">
+        <li class="role"><div class="rule"></div><div class="role-row r-up" style="--d:120ms"><b>Payaza Africa (78 Financials)</b><span>Product Design Lead</span><time>2021 – Present</time></div></li>
+        <li class="role"><div class="rule" style="--d:110ms"></div><div class="role-row r-up" style="--d:230ms"><b>Format 3</b><span>Senior Product Designer</span><time>2024</time></div></li>
+        <li class="role"><div class="rule" style="--d:220ms"></div><div class="role-row r-up" style="--d:340ms"><b>Woven Finance</b><span>Product Designer</span><time>2020 – 2021</time></div></li>
+        <li class="role"><div class="rule" style="--d:330ms"></div><div class="role-row r-up" style="--d:450ms"><b>Parthian Partners</b><span>Product Designer</span><time>2019 – 2020</time></div></li>
+      </ol>
+    </div>
+  </section>
+
+<footer class="panel foot-panel">
+  <section class="foot sec" id="contact" data-r>
+    <div class="wrap">
+      <h2 class="split chars">Let’s build something people trust<span class="sq pop keep" style="--d:900ms"></span></h2>
+      <div class="rule" style="--d:300ms"></div>
+      <div class="foot-row">
+        <p class="r-up" style="--d:450ms">I’m open to conversations about product opportunities, collaboration, and building better digital experiences.</p>
+        <div class="foot-links">
+          <span class="r-up" style="--d:520ms"><a class="lnk" data-link="email" href="#contact">Email me <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          <span class="r-up" style="--d:590ms"><a class="lnk" data-link="linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+          <span class="r-up" style="--d:660ms"><a class="lnk" data-link="cv" href="#contact">View CV <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <p class="credit sec">© Reinox Designs. Designed by Ifeoluwa Olatunde</p>
+</footer>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  /* ── Your links. Leave one empty and its buttons say "Coming soon". ── */
+  const LINKS = {
+    email: '',                                  // e.g. 'hello@yourdomain.com'
+    linkedin: 'https://www.linkedin.com/',      // your profile URL
+    cv: ''                                      // link to your CV (PDF or page)
+  };
+
+  const root = document.documentElement;
+  const anim = root.classList.contains('anim');
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  /* ── Links from config ── */
+  $$('[data-link]').forEach(a => {
+    const v = LINKS[a.dataset.link];
+    if (!v) { a.setAttribute('data-soon', ''); return; }
+    a.href = a.dataset.link === 'email' ? 'mailto:' + v : v;
+    if (a.dataset.link !== 'email') { a.target = '_blank'; a.rel = 'noopener'; }
+  });
+
+  /* ── "Coming soon" toast for pages that aren't built yet ── */
+  const toast = $('#toast'); let toastT;
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-soon]'); if (!a) return;
+    e.preventDefault();
+    toast.textContent = 'Coming soon';
+    toast.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('on'), 1800);
+  });
+
+  /* ── Text splitting (words or characters, each rising from a mask) ── */
+  function split(el, mode) {
+    const label = el.textContent.trim();
+    let n = 0;
+    const piece = t => {
+      const w = document.createElement('span'); w.className = 'w';
+      const i = document.createElement('span'); i.className = 'wi'; i.textContent = t;
+      if (mode === 'chars') i.style.setProperty('--l', n++);
+      w.append(i); return w;
+    };
+    const walk = node => [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.append(' '); return; }
+          if (mode === 'chars') {
+            const cw = document.createElement('span'); cw.className = 'cw';
+            [...p].forEach(c => cw.append(piece(c))); frag.append(cw);
+          } else frag.append(piece(p));
+        });
+        ch.replaceWith(frag);
+      } else if (ch.nodeType === 1 && !ch.classList.contains('keep')) walk(ch);
+    });
+    walk(el);
+    const dot = el.querySelector(':scope > .keep'), lastWord = $$('.wi', el).pop();
+    if (dot && lastWord && mode !== 'chars') lastWord.append(dot);   // keeps the square on the text baseline
+    if (mode === 'chars') { el.setAttribute('aria-label', label); $$('.cw', el).forEach(c => c.setAttribute('aria-hidden', 'true')); }
+  }
+  function setLines(el) {
+    if (el.classList.contains('chars')) return;
+    let top = null, l = -1;
+    $$('.w', el).forEach(w => {
+      const t = w.getBoundingClientRect().top;
+      if (top === null || Math.abs(t - top) > 6) { l++; top = t; }
+      w.firstChild.style.setProperty('--l', l);
+    });
+  }
+
+  /* ── Scroll-linked pieces ── */
+  const hdr = $('#hdr');
+  const statement = $('#statement');
+  const pin = $('.glance-pin'), heroIn = $('.hero-in');
+  let scrubWords = [], lastP = -1, maxP = 0, inkStarted = false;
+  const visuals = $$('.vis img');
+
+  function wrapScrub(el) {
+    const walk = node => [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.append(' '); return; }
+          const s = document.createElement('span'); s.className = 'sw'; s.textContent = p; frag.append(s);
+        });
+        ch.replaceWith(frag);
+      } else if (ch.nodeType === 1) {
+        if (ch.classList.contains('cnt')) ch.classList.add('sw'); else walk(ch);
+      }
+    });
+    walk(el);
+    scrubWords = $$('.sw', el);
+    scrubWords.forEach(w => { w.style.opacity = 0.2; });
+  }
+
+  const casesSec = $('#case-studies');
+  let inkFrozen = false, cntDone = false, lastInk = -1;
+  function applyInk(p) {
+    const words = $$('.sw, .gw', statement), cnt = $('.cnt', statement), n = words.length, lead = 6;
+    words.forEach((w, i) => {
+      const o = clamp((p * (n + lead) - i) / lead);
+      w.style.opacity = (0.2 + 0.8 * o).toFixed(3);
+      if (!cntDone && o > 0.12 && w === cnt) { cntDone = true; countUp(w); }
+    });
+  }
+
+  let counted = false;
+  function countUp(el) {
+    const to = parseFloat(el.dataset.to), dec = +el.dataset.dec || 0, suf = el.dataset.suffix || '';
+    el.style.minWidth = el.offsetWidth + 'px';
+    const t0 = performance.now(), dur = 1500;
+    (function tick(now) {
+      const p = clamp((now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = (to * e).toFixed(dec) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  let lastY = window.scrollY, ticking = false, travel = 0;
+  function onScroll() {
+    const y = window.scrollY, vh = window.innerHeight;
+
+    // header: tuck away going down, return going up
+    if (!root.classList.contains('loading')) {
+      // total distance travelled in the current direction, so slow or gentle scrolling counts too
+      const d = y - lastY;
+      travel = (d > 0) === (travel > 0) ? travel + d : d;
+      if (y < 140 || travel < -12) hdr.classList.remove('is-hidden');
+      else if (travel > 40) hdr.classList.add('is-hidden');
+      hdr.classList.toggle('is-floating', y > 140);   // a soft edge when it sits over content
+    }
+    lastY = y;
+
+    if (anim) {
+      // hero: recedes as the second screen arrives
+      if (root.classList.contains('landed')) {
+        const hp = clamp(y / (pinTop() || 1));
+        heroIn.style.opacity = (1 - hp * 1.15).toFixed(3);
+        heroIn.style.transform = `translate3d(0, ${(hp * -70).toFixed(1)}px, 0) scale(${(1 - hp * 0.05).toFixed(4)})`;
+      }
+      // statement: words ink in as you scroll through it
+      // statement: reads itself word by word as you scroll through the pinned second screen (again on every visit)
+      const B = pin.getBoundingClientRect().top + y, hold = Math.max(1, casesSec.getBoundingClientRect().top + y - vh - B);
+      const ip = clamp((y - B) / (hold * 0.96));
+      if (ip < 0.02) { inkFrozen = false; cntDone = false; }
+      if (!inkFrozen && Math.abs(ip - lastInk) > 0.002) { lastInk = ip; applyInk(ip); }
+      // case visuals: a slow drift inside the frame
+      visuals.forEach(img => {
+        const r = img.parentNode.parentNode.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) return;
+        const p = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.setProperty('--py', (clamp(p, -1, 1) * -r.height * 0.03).toFixed(1) + 'px');
+      });
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener('resize', () => {
+    $$('.split').forEach(el => { if (!el.closest('[data-r]').classList.contains('in')) setLines(el); });
+    lastP = -1; onScroll();
+  });
+
+  /* ── Cursor badge on case visuals ── */
+  const cur = $('#cursor'), curLabel = cur.firstElementChild;
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let tx = -200, ty = -200, x = tx, y = ty, s = 0, ts = 0, raf = 0;
+    const loop = () => {
+      x += (tx - x) * 0.2; y += (ty - y) * 0.2; s += (ts - s) * 0.18;
+      cur.style.setProperty('--x', x.toFixed(1) + 'px'); cur.style.setProperty('--y', y.toFixed(1) + 'px'); cur.style.setProperty('--s', s.toFixed(3));
+      raf = (ts > 0 || s > 0.01) ? requestAnimationFrame(loop) : 0;
+      if (!raf) cur.style.setProperty('--s', 0);
+    };
+    $$('[data-cursor]').forEach(el => {
+      el.addEventListener('pointerenter', e => {
+        curLabel.textContent = el.dataset.cursor; ts = 1;
+        if (s < 0.02) { x = tx = e.clientX; y = ty = e.clientY; }
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      el.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
+      el.addEventListener('pointerleave', () => { ts = 0; });
+    });
+    window.addEventListener('scroll', () => { ts = 0; }, { passive: true });
+
+    // magnetic button
+    const btn = $('#moreBtn');
+    btn.addEventListener('pointermove', e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.transform = `translate(${((e.clientX - r.left) / r.width - 0.5) * 14}px, ${((e.clientY - r.top) / r.height - 0.5) * 10}px)`;
+    });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  }
+
+  /* ── "Worked with": hover a company to see its own "At a glance" line ── */
+  const GLANCE = {
+    payaza: '<strong>Product Design Lead</strong> since <strong>2021</strong>. Leading a small team across cross-border payments, merchant onboarding, FX and treasury. <strong>93.78%</strong> of merchants now finish verification, and settlement tracing dropped from <strong>two days to under an hour.</strong>',
+    format3: '<strong>Senior Product Designer</strong> in <strong>2024</strong>. End-to-end product work for Format 3’s clients, from early flows and prototypes to <strong>high-fidelity, build-ready UI.</strong>',
+    parthian: '<strong>Product Designer</strong> from <strong>2019 to 2020</strong>. Designed for Parthian Equities, an investment product line that reached <strong>₦1B</strong> in revenue within <strong>nine months.</strong>',
+    woven: '<strong>Product Designer</strong> from <strong>2020 to 2021</strong>. Designed savings and investment experiences at Woven Finance, <strong>making it simple for people to put money aside.</strong>'
+  };
+  GLANCE.default = statement.innerHTML.replace(/<span class="cnt"[^>]*>([^<]*)<\/span>/, '$1');
+  const withEl = $('#with'), cos = $$('.co', withEl);
+  let current = 'default', swapToken = 0, leaveT = 0;
+
+  const toWords = html => {
+    const box = document.createElement('div'); box.innerHTML = html;
+    const walk = node => [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.append(' '); return; }
+          const w = document.createElement('span'); w.className = 'gw'; w.textContent = p; frag.append(w);
+        });
+        ch.replaceWith(frag);
+      } else walk(ch);
+    });
+    walk(box); return box.innerHTML;
+  };
+  const RENDERED = {}; Object.keys(GLANCE).forEach(k => RENDERED[k] = toWords(GLANCE[k]));
+
+  // keep the block the height of its longest version, so nothing below jumps
+  function sizeStatement() {
+    const probe = statement.cloneNode(false);
+    probe.removeAttribute('id'); probe.style.cssText = `position:absolute;visibility:hidden;left:-9999px;top:0;width:${statement.clientWidth}px;min-height:0`;
+    statement.parentNode.append(probe);
+    let h = 0; Object.values(RENDERED).forEach(html => { probe.innerHTML = html; h = Math.max(h, probe.offsetHeight); });
+    probe.remove(); statement.style.minHeight = h + 'px';
+  }
+
+  function settleScrub() {           // hovering a company shows the text in full until you leave and come back
+    inkFrozen = true; cntDone = true;
+    $$('.sw, .gw', statement).forEach(w => { w.style.opacity = 1; });
+    const c = $('.cnt', statement); if (c) c.textContent = '93.78%';
+  }
+
+  async function show(key) {
+    if (key === current) return;
+    current = key; const token = ++swapToken;
+    cos.forEach(b => { const on = b.dataset.co === key; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    withEl.classList.toggle('has-active', key !== 'default');
+    settleScrub();
+    const words = $$('.gw, .sw', statement);
+    if (anim && words.length) {
+      const n = words.length;
+      await Promise.all(words.map((w, i) => w.animate(
+        [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-0.22em)' }],
+        { duration: 220, delay: Math.min(i * 4, 120), easing: 'cubic-bezier(.7,0,.84,0)', fill: 'forwards' }).finished.catch(() => {})));
+      if (token !== swapToken) return;
+    }
+    statement.innerHTML = RENDERED[key];
+    if (!anim) return;
+    $$('.gw', statement).forEach((w, i) => w.animate(
+      [{ opacity: 0, transform: 'translateY(0.4em)' }, { opacity: 1, transform: 'none' }],
+      { duration: 700, delay: Math.min(i * 14, 420), easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+  }
+
+  cos.forEach(b => {
+    b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { clearTimeout(leaveT); show(b.dataset.co); } });
+    b.addEventListener('pointerdown', () => { b._pressed = true; });
+    b.addEventListener('focus', () => { if (b._pressed) return; clearTimeout(leaveT); show(b.dataset.co); });   // keyboard focus
+    b.addEventListener('click', e => {               // taps on touch screens toggle
+      b._pressed = false; clearTimeout(leaveT);
+      if (e.pointerType !== 'mouse' && current === b.dataset.co) show('default'); else show(b.dataset.co);
+    });
+  });
+  withEl.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { clearTimeout(leaveT); leaveT = setTimeout(() => show('default'), 140); } });
+  withEl.addEventListener('focusout', e => { if (!withEl.contains(e.relatedTarget)) { clearTimeout(leaveT); leaveT = setTimeout(() => show('default'), 140); } });
+  sizeStatement();
+  window.addEventListener('resize', sizeStatement);
+  if (document.fonts) document.fonts.ready.then(sizeStatement);
+
+  if (!anim) { onScroll(); return; }
+
+  /* ── One scroll between the hero and the second screen ── */
+  const pinTop = () => Math.round(pin.getBoundingClientRect().top + window.scrollY);
+  const casesEl = $('#case-studies');
+  let gliding = false, coolUntil = 0, held = false, lastWheel = 0, holdPos = 0, holdTarget = 0, holdRaf = 0, heldUntil = 0;
+  function glide(to, dur = 1150) {
+    gliding = true;
+    const from = window.scrollY, t0 = performance.now();
+    // responds straight away, then settles gently
+    const ease = t => 0.3 * (t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2) + 0.7 * (1 - Math.pow(1 - t, 3));
+    (function step(now) {
+      const p = clamp((now - t0) / dur);
+      window.scrollTo({ top: from + (to - from) * ease(p), behavior: 'instant' });
+      if (p < 1) requestAnimationFrame(step); else { gliding = false; held = true; heldUntil = performance.now() + 600; coolUntil = performance.now() + 150; }
+    })(t0);
+  }
+  /* ── Lower panels: one scroll per screen, each sliding over the last ── */
+  const stack = $('#stack'), panels = $$('.panel', stack);
+  function checkPanels() {
+    const ok = window.innerWidth >= 900 && window.innerHeight >= 680 &&
+      panels.every(p => { const was = root.classList.contains('panels'); root.classList.remove('panels'); const h = p.scrollHeight; if (was) root.classList.add('panels'); return h <= window.innerHeight; });
+    root.classList.toggle('panels', ok);
+  }
+  checkPanels(); window.addEventListener('resize', checkPanels);
+  const panelStops = () => {
+    let t = Math.round(stack.getBoundingClientRect().top + window.scrollY);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    return panels.map(p => { const at = Math.min(t, max); t += p.offsetHeight; return at; });
+  };
+  function replay(panel) {                     // the arriving screen builds itself again
+    const els = $$('[data-r]', panel).concat(panel.matches('[data-r]') ? [panel] : []);
+    els.forEach(el => el.classList.remove('in'));
+    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => els.forEach(el => el.classList.add('in')), 260)));
+  }
+  function stackSnap(dir, y) {
+    if (!root.classList.contains('panels')) return null;
+    const vh = window.innerHeight, S = panelStops(), H = S[0];
+    if (y < H - vh - 4) return null;
+    if (dir > 0) {
+      const i = S.findIndex(t => t > y + 4);
+      if (i < 0) return true;                    // already on the last screen
+      replay(panels[i]); glide(S[i]); return true;
+    }
+    for (let i = S.length - 1; i >= 0; i--) if (S[i] < y - 4) { replay(panels[i]); glide(S[i]); return true; }
+    if (y > H - vh + 4) { glide(H - vh); return true; }   // back to the end of the case studies
+    return null;
+  }
+
+  // returns true when the gesture was taken over
+  function snap(dir) {
+    if (!root.classList.contains('landed')) return false;
+    if (gliding || performance.now() < coolUntil) return true;
+    const y = window.scrollY;
+    const st = stackSnap(dir, y); if (st !== null) return st;
+    // hero → At a glance (one scroll) → hold while it reads (free scrolling) → Selected case studies (one slow glide)
+    const B = pinTop(), D = Math.round(casesEl.getBoundingClientRect().top + y), C = D - window.innerHeight;
+    if (dir > 0) {
+      if (y < B - 4) { glide(B); return true; }
+      if (y >= C - 4 && y < D - 4) { glide(D, 1650); return true; }
+    } else {
+      if (y > C + 4 && y <= D + 4) { glide(C, 1650); return true; }
+      if (y > 0 && y <= B + 4) { glide(0); return true; }
+    }
+    return false;
+  }
+  // inside the pinned second screen the wheel is geared down and eased, so it reads at a calm pace
+  function holdLoop() {
+    const d = holdTarget - holdPos;
+    if (Math.abs(d) < 0.4) { holdPos = holdTarget; window.scrollTo({ top: holdPos, behavior: 'instant' }); holdRaf = 0; return; }
+    holdPos += d * 0.2; window.scrollTo({ top: holdPos, behavior: 'instant' });
+    holdRaf = requestAnimationFrame(holdLoop);
+  }
+  window.addEventListener('wheel', e => {
+    if (!root.classList.contains('landed')) return;
+    const now = performance.now(), gap = now - lastWheel; lastWheel = now;
+    if (gliding) { e.preventDefault(); return; }
+    // firm stops: after landing on a screen or hitting an edge, the rest of that flick (and its momentum) is ignored
+    if (held) { if (gap < 140 && now < heldUntil) { e.preventDefault(); return; } held = false; }   // never blocks for longer than heldUntil
+    const dy = e.deltaY * (e.deltaMode === 1 ? 16 : 1), dir = Math.sign(dy);
+    if (!dir) return;
+    const y = window.scrollY, B = pinTop(), D = Math.round(casesEl.getBoundingClientRect().top + y), C = D - window.innerHeight;
+
+    if (y >= B - 4 && y <= C + 4 && !(dir < 0 && y <= B + 4) && !(dir > 0 && y >= C - 4)) {
+      e.preventDefault();
+      if (!holdRaf) { holdPos = y; holdTarget = y; }
+      holdTarget = clamp(holdTarget + dy * 0.8, B, C);
+      if (holdTarget === B || holdTarget === C) { held = true; heldUntil = now + 280; }      // brief pause at the edge, then it carries on
+      if (!holdRaf) holdRaf = requestAnimationFrame(holdLoop);
+      return;
+    }
+    // coming back up through the case studies: stop at the top of that section first
+    if (dir < 0 && y > D + 4 && y + dy <= D) { e.preventDefault(); window.scrollTo({ top: D, behavior: 'instant' }); held = true; heldUntil = now + 350; return; }
+    if (holdRaf) { cancelAnimationFrame(holdRaf); holdRaf = 0; }
+    if (snap(dir)) e.preventDefault();
+  }, { passive: false });
+  let touchY = null;
+  window.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchmove', e => {
+    if (touchY === null) return;
+    const d = touchY - e.touches[0].clientY;
+    if (gliding) { e.preventDefault(); return; }
+    if (Math.abs(d) > 10 && snap(Math.sign(d))) { e.preventDefault(); touchY = null; }
+  }, { passive: false });
+  window.addEventListener('keydown', e => {
+    if (e.target.closest && e.target.closest('input, textarea, select')) return;
+    const dir = ['ArrowDown', 'PageDown', ' '].includes(e.key) ? 1 : ['ArrowUp', 'PageUp'].includes(e.key) ? -1 : 0;
+    if (dir && snap(dir)) e.preventDefault();
+  });
+
+  /* ── Prepare animated text ── */
+  $$('.split').forEach(el => split(el, el.classList.contains('chars') ? 'chars' : 'words'));
+  wrapScrub(statement);
+
+  /* ── Scroll reveals ── */
+  function startReveals() {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    $$('[data-r]:not([data-hero])').forEach(el => io.observe(el));
+    onScroll();
+  }
+
+  /* ── Loader: words rise, hold, a line pushes them apart, then the line splits and the screen opens ── */
+  async function runLoader() {
+    const loader = $('#loader'), line = $('.ld-line', loader);
+    const [w1, w2] = $$('.ld-word', loader), [t1, t2] = [w1.firstElementChild, w2.firstElementChild];
+    if (!location.hash) { try { history.scrollRestoration = 'manual'; } catch (e) {} window.scrollTo(0, 0); }
+
+    await Promise.race([document.fonts ? document.fonts.ready : wait(0), wait(1500)]);
+    $$('.split').forEach(setLines);
+
+    const rise = { duration: 900, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' };
+    t1.animate([{ transform: 'translateY(130%)' }, { transform: 'none' }], { ...rise, delay: 100 });
+    t2.animate([{ transform: 'translateY(130%)' }, { transform: 'none' }], { ...rise, delay: 300 });
+    await wait(1250);
+
+    const margin = Math.max(16, window.innerWidth * 0.042);
+    const lm = parseFloat(getComputedStyle(line).marginLeft) || 0;
+    const W = Math.max(24, window.innerWidth - margin * 2 - w1.offsetWidth - w2.offsetWidth - lm * 2);
+    await line.animate([{ width: '0px' }, { width: W + 'px' }], { duration: 1700, easing: 'cubic-bezier(.9,0,.35,1)', fill: 'forwards' }).finished;
+    await wait(160);
+
+    // exit: the line keeps growing and pushes each name off its own side, then splits in two and opens the page
+    const a = line.getBoundingClientRect(), seam = Math.round(a.top), vw = root.clientWidth;
+    const morph = document.createElement('div'); morph.className = 'ld-morph';
+    Object.assign(morph.style, { left: a.left + 'px', top: seam + 'px', width: a.width + 'px' });
+    document.body.append(morph); line.style.visibility = 'hidden';
+    const push = { duration: 1000, easing: 'cubic-bezier(.76,0,.24,1)', fill: 'forwards' };
+    w1.animate([{ transform: 'none' }, { transform: `translateX(${-a.left}px)` }], push);          // Ifeoluwa leaves left
+    w2.animate([{ transform: 'none' }, { transform: `translateX(${vw - a.right}px)` }], push);     // Olatunde leaves right
+    await morph.animate(
+      [{ transform: 'none' }, { transform: `translateX(${-a.left}px) scaleX(${vw / a.width})` }], push).finished;
+    await wait(60);
+
+    const top = $('.ld-top', loader), bot = $('.ld-bot', loader);
+    top.style.height = seam + 'px'; bot.style.top = seam + 'px';
+    loader.classList.add('is-split');          // the two halves take over from the solid background
+    morph.remove(); $('.ld-row', loader).remove();
+    const open = { duration: 1300, easing: 'cubic-bezier(.76,0,.24,1)', fill: 'forwards' };
+    const up = top.animate([{ transform: 'none' }, { transform: 'translateY(-100%)' }], open);
+    bot.animate([{ transform: 'none' }, { transform: 'translateY(100%)' }], open);
+
+    await wait(240);
+    root.classList.add('ready');
+    $$('[data-hero]').forEach(el => el.classList.add('in'));
+    startReveals();
+
+    await up.finished;
+    root.classList.add('landed');
+    root.classList.remove('loading');
+    loader.remove();
+    lastY = window.scrollY;
+  }
+
+  runLoader().catch(() => {
+    // never leave the page covered
+    root.classList.add('ready', 'landed'); root.classList.remove('loading');
+    $$('[data-r]').forEach(el => el.classList.add('in'));
+    const l = $('#loader'); if (l) l.remove();
+    $$('.ld-morph').forEach(m => m.remove());
+  });
+})();
+</script>
+
+</body>
+</html>
