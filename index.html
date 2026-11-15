@@ -15,12 +15,16 @@ img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
 <title>Ifeoluwa Olatunde</title>
+<script src="/assets/pt.js"></script>
+<script src="/assets/links.js"></script>
 <script>
 /* Motion is opt-in: the page is fully visible without it. */
 (function () {
   var r = document.documentElement;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) r.classList.add('anim', 'loading');
+  /* the name loader plays once per visit; coming back from another page skips straight in */
+  var seen = !!(window.IO_PT && window.IO_PT.incoming); try { seen = seen || sessionStorage.getItem('io-seen') === '1'; } catch (e) {}
+  if (!reduce) r.classList.add('anim', seen ? 'skip' : 'loading');
   /* Safety net: if anything stalls, drop all motion states so the page is never left covered. */
   setTimeout(function () { if (!r.classList.contains('landed')) r.classList.remove('anim', 'loading'); }, 9000);
 })();
@@ -99,6 +103,7 @@ ol { padding: 0; list-style: none; }
   background: var(--bg);
 }
 html.anim .loader { display: flex; animation: ld-safety 1ms 10s forwards; }
+html.anim.skip .loader { display: none; }
 @keyframes ld-safety { to { visibility: hidden; } }
 .ld-row {
   display: flex; align-items: center; justify-content: center;
@@ -403,8 +408,8 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
   <div class="hdr-in">
     <a class="logo" href="#top" aria-label="Ifeoluwa Olatunde, home" data-h style="--i:0">IO<i></i></a>
     <nav class="nav" aria-label="Primary">
-      <a href="#about" data-h style="--i:1">About</a>
-      <a href="#case-studies" data-h style="--i:2">Case Studies</a>
+      <a href="/about" data-h style="--i:1">About</a>
+      <a href="/case-studies" data-h style="--i:2">Case Studies</a>
       <a href="#experience" data-h style="--i:3">Work</a>
       <a href="#side-projects" data-soon data-h style="--i:4">Side Projects</a>
     </nav>
@@ -448,20 +453,20 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
     <div class="wrap">
       <div class="cases-head" data-r>
         <h2 class="split">Selected case studies<span class="sq pop keep"></span></h2>
-        <span class="r-up" style="--d:250ms"><a class="lnk" href="#all-case-studies" data-soon>All case studies <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+        <span class="r-up" style="--d:250ms"><a class="lnk" href="/case-studies">All case studies <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
       </div>
 
       <article class="case" data-r>
         <div class="rule"></div>
         <div class="case-body">
-          <a class="vis" href="#settlement" data-soon data-cursor="View case study" aria-label="The Settlement Control Room case study" style="--tint:#2E1A47"><span class="vis-zoom"><img src="assets/home-settlement.jpg" width="1372" height="840" alt="Payaza merchant dashboard, Settlements page listing aggregating settlements"></span></a>
+          <a class="vis" href="/case-studies/settlement-control-room" data-cursor="View case study" aria-label="The Settlement Control Room case study" style="--tint:#2E1A47"><span class="vis-zoom"><img src="assets/home-settlement.jpg" width="1372" height="840" alt="Payaza merchant dashboard, Settlements page listing aggregating settlements"></span></a>
           <div class="case-txt">
             <div class="case-top">
               <p class="case-num r-up" style="--d:250ms">01 — Payaza · Finance operations</p>
-              <h3 class="r-up" style="--d:330ms"><a href="#settlement" data-soon>The Settlement Control Room</a></h3>
+              <h3 class="r-up" style="--d:330ms"><a href="/case-studies/settlement-control-room">The Settlement Control Room</a></h3>
               <p class="case-desc r-up" style="--d:410ms">Designing the internal infrastructure that gives Finance clarity, authority and confidence over money in transit.</p>
             </div>
-            <span class="r-up" style="--d:520ms"><a class="lnk" href="#settlement" data-soon>Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="/case-studies/settlement-control-room">Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
           </div>
         </div>
       </article>
@@ -469,14 +474,14 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
       <article class="case" data-r>
         <div class="rule"></div>
         <div class="case-body">
-          <a class="vis" href="#compliance" data-soon data-cursor="View case study" aria-label="Rethinking Payaza’s compliance case study" style="--tint:#E6DCCB"><span class="vis-zoom"><img src="assets/home-compliance.jpg" width="1372" height="840" loading="lazy" alt="Research wall of sticky notes from sales, compliance, ops and merchant interviews, with the key insight circled"></span></a>
+          <a class="vis" href="/case-studies/compliance" data-cursor="View case study" aria-label="Rethinking Payaza’s compliance case study" style="--tint:#E6DCCB"><span class="vis-zoom"><img src="assets/home-compliance.jpg" width="1372" height="840" loading="lazy" alt="Research wall of sticky notes from sales, compliance, ops and merchant interviews, with the key insight circled"></span></a>
           <div class="case-txt">
             <div class="case-top">
               <p class="case-num r-up" style="--d:250ms">02 — Payaza · Merchant onboarding</p>
-              <h3 class="r-up" style="--d:330ms"><a href="#compliance" data-soon>Rethinking Payaza’s compliance</a></h3>
+              <h3 class="r-up" style="--d:330ms"><a href="/case-studies/compliance">Rethinking Payaza’s compliance</a></h3>
               <p class="case-desc r-up" style="--d:410ms">From burden to brilliance - replacing a one-size-fits-all review with a graduated, risk-tiered model so good merchants stop stalling in compliance.</p>
             </div>
-            <span class="r-up" style="--d:520ms"><a class="lnk" href="#compliance" data-soon>Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
+            <span class="r-up" style="--d:520ms"><a class="lnk" href="/case-studies/compliance">Read case study <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
           </div>
         </div>
       </article>
@@ -513,7 +518,7 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
       </article>
 
       <div class="more" data-r>
-        <span class="r-up"><a class="btn" id="moreBtn" href="#all-case-studies" data-soon><span>See more case studies</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></span>
+        <span class="r-up"><a class="btn" id="moreBtn" href="/case-studies"><span>See more case studies</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></span>
       </div>
     </div>
   </section>
@@ -589,11 +594,8 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
 <script>
 (() => {
   /* ── Your links. Leave one empty and its buttons say "Coming soon". ── */
-  const LINKS = {
-    email: '',                                  // e.g. 'hello@yourdomain.com'
-    linkedin: 'https://www.linkedin.com/',      // your profile URL
-    cv: ''                                      // link to your CV (PDF or page)
-  };
+  /* ── Your links live in assets/links.js (shared by every page). Leave one empty and its buttons say "Coming soon". ── */
+  const LINKS = window.IO_LINKS || { email: '', linkedin: 'https://www.linkedin.com/', cv: '' };
 
   const root = document.documentElement;
   const anim = root.classList.contains('anim');
@@ -987,6 +989,18 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
   /* ── Loader: words rise, hold, a line pushes them apart, then the line splits and the screen opens ── */
   async function runLoader() {
     const loader = $('#loader'), line = $('.ld-line', loader);
+    if (root.classList.contains('skip')) {     // already seen this visit: open straight onto the page
+      loader.remove();
+      await Promise.race([document.fonts ? document.fonts.ready : wait(0), wait(800)]);
+      $$('.split').forEach(setLines);
+      if (window.IO_PT) { await window.IO_PT.opened; if (window.IO_PT.incoming) await wait(180); }
+      root.classList.add('ready');
+      $$('[data-hero]').forEach(el => el.classList.add('in'));
+      startReveals();
+      root.classList.add('landed');
+      lastY = window.scrollY; onScroll();
+      return;
+    }
     const [w1, w2] = $$('.ld-word', loader), [t1, t2] = [w1.firstElementChild, w2.firstElementChild];
     if (!location.hash) { try { history.scrollRestoration = 'manual'; } catch (e) {} window.scrollTo(0, 0); }
 
@@ -1033,6 +1047,7 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
     root.classList.add('landed');
     root.classList.remove('loading');
     loader.remove();
+    try { sessionStorage.setItem('io-seen', '1'); } catch (e) {}
     lastY = window.scrollY;
   }
 
