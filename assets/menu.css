@@ -1,0 +1,79 @@
+/* Mobile menu. Below 760px the header links fold into a "Menu" button.
+   The menu opens like the loader: a hairline draws across the middle and the page splits open from it. */
+
+.menu-btn {
+  display: none; align-items: center; gap: 12px; height: 44px; margin-right: -10px; padding: 0 10px;
+  border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  font: 500 14px/1 var(--f-display); letter-spacing: .01em; color: var(--ink);
+}
+.menu-btn-i { position: relative; width: 22px; height: 10px; }
+.menu-btn-i i { position: absolute; left: 0; right: 0; height: 1.5px; border-radius: 1px; background: currentColor; transition: transform .5s var(--expo, cubic-bezier(.16,1,.3,1)); }
+.menu-btn-i i:first-child { top: 0; }
+.menu-btn-i i:last-child { bottom: 0; left: 8px; }
+@media (hover: hover) { .menu-btn:hover .menu-btn-i i:last-child { transform: translateX(-8px); } }
+.menu-btn:active .menu-btn-i i:first-child { transform: translateX(4px); }
+
+@media (max-width: 760px) {
+  .hdr .nav { display: none; }
+  .menu-btn { display: inline-flex; }
+}
+
+/* the sheet */
+.menu {
+  position: fixed; inset: 0; z-index: 45; color: #FAFAF8;
+  display: flex; flex-direction: column;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  overscroll-behavior: contain; overflow-y: auto;
+}
+.menu[hidden] { display: none; }
+.menu-bg { position: fixed; inset: 0; background: #16181C; z-index: -1; }
+.menu-line { position: fixed; left: 0; right: 0; top: 50%; height: 1px; background: #C6C5BF; z-index: 1; transform: scaleX(0); opacity: 0; pointer-events: none; }
+
+.menu .sec { padding-left: max(var(--g, 16px), env(safe-area-inset-left, 0px)); padding-right: max(var(--g, 16px), env(safe-area-inset-right, 0px)); }
+.menu-top-in { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; }
+.menu .logo { color: #FAFAF8; }
+.menu-x {
+  display: inline-flex; align-items: center; gap: 12px; height: 44px; margin-right: -10px; padding: 0 10px;
+  border: 0; background: none; cursor: pointer; color: #FAFAF8; -webkit-tap-highlight-color: transparent;
+  font: 500 14px/1 var(--f-display); letter-spacing: .01em;
+}
+.menu-x-i { position: relative; width: 22px; height: 22px; }
+.menu-x-i i { position: absolute; left: 1px; right: 1px; top: 50%; height: 1.5px; margin-top: -.75px; border-radius: 1px; background: currentColor; }
+.menu-x-i i:first-child { transform: rotate(45deg); }
+.menu-x-i i:last-child { transform: rotate(-45deg); }
+
+.menu-nav { flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; padding-block: 32px; }
+.menu-nav li { position: relative; }
+.menu-nav li::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(250, 250, 248, .14); transform-origin: 0 50%; }
+.menu-nav li:first-child::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: rgba(250, 250, 248, .14); transform-origin: 0 50%; }
+.menu-nav a {
+  display: flex; align-items: center; gap: 16px; padding: 18px 0; color: #FAFAF8;
+  -webkit-tap-highlight-color: transparent;
+}
+.mn-n { align-self: flex-start; width: 22px; padding-top: 6px; font: 400 12px/1 var(--f-text); color: #8A8C85; font-variant-numeric: tabular-nums; }
+.mn-m { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; flex: 1; min-width: 0; }
+.mn-t { display: inline-flex; align-items: baseline; gap: 10px; font: 600 clamp(38px, 11vw, 56px)/1.05 var(--f-display, sans-serif); letter-spacing: -.045em; transition: transform .5s var(--expo, ease), color .3s; }
+.mn-t .dot { width: 9px; height: 9px; border-radius: 50%; background: #8BAA3C; flex: none; transform: translateY(-.1em); }
+.mn-soon { align-self: center; padding: 5px 10px; border: 1px solid rgba(250, 250, 248, .24); border-radius: 999px; font: 400 12px/1 var(--f-text); color: #B7B6AF; white-space: nowrap; }
+.mn-arr { width: 22px; height: 22px; flex: none; color: #8A8C85; transition: transform .5s var(--expo, ease), color .3s; }
+.menu-nav a:active .mn-t, .menu-nav a:focus-visible .mn-t { transform: translateX(8px); }
+.menu-nav a:active .mn-arr { transform: translateX(4px); color: #FAFAF8; }
+.menu-nav a[aria-current] .mn-arr { color: #8BAA3C; }
+@media (hover: hover) {
+  .menu-nav a:hover .mn-t { transform: translateX(8px); }
+  .menu-nav a:hover .mn-arr { transform: translateX(4px); color: #FAFAF8; }
+}
+
+.menu-foot { padding-block: 8px 28px; display: flex; flex-direction: column; gap: 14px; }
+.mf-l { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #8A8C85; }
+.mf-links { display: flex; flex-wrap: wrap; gap: 4px 32px; }
+.mf-links a { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 16px; color: #FAFAF8; }
+.mf-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 1px; background: rgba(250, 250, 248, .4); }
+.mf-links svg { width: 11px; height: 11px; }
+.mf-meta { display: flex; justify-content: space-between; gap: 16px; padding-top: 10px; font-size: 13px; color: #8A8C85; font-variant-numeric: tabular-nums; }
+.mf-time i { display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: #8BAA3C; vertical-align: 1px; animation: mf-pulse 2.4s ease-in-out infinite; }
+@keyframes mf-pulse { 50% { opacity: .3; } }
+
+/* pieces that rise into place while the sheet opens */
+span.m-rise { display: block; }
+html.menu-lock, html.menu-lock body { overflow: hidden; }
