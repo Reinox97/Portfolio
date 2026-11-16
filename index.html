@@ -22,8 +22,10 @@ img { max-width: 100%; }
 (function () {
   var r = document.documentElement;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* the name loader plays once per visit; coming back from another page skips straight in */
-  var seen = !!(window.IO_PT && window.IO_PT.incoming); try { seen = seen || sessionStorage.getItem('io-seen') === '1'; } catch (e) {}
+  /* the name loader plays on every fresh load and reload; arriving from another page of the site
+     (a link click, or the browser's back/forward buttons) skips straight in */
+  var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  var seen = !!(window.IO_PT && window.IO_PT.incoming) || nav.type === 'back_forward';
   if (!reduce) r.classList.add('anim', seen ? 'skip' : 'loading');
   /* Safety net: if anything stalls, drop all motion states so the page is never left covered. */
   setTimeout(function () { if (!r.classList.contains('landed')) r.classList.remove('anim', 'loading'); }, 9000);
@@ -1047,7 +1049,6 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
     root.classList.add('landed');
     root.classList.remove('loading');
     loader.remove();
-    try { sessionStorage.setItem('io-seen', '1'); } catch (e) {}
     lastY = window.scrollY;
   }
 

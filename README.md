@@ -17,7 +17,7 @@ Shared files in `assets/`:
 - `links.js` — your email, LinkedIn and CV links, used by every page. Leave one empty and its buttons show "Coming soon".
 - images for the case studies and the portrait
 
-The name loader plays once per visit; coming back to the home page from another page skips straight in.
+The name loader plays on every load and reload of the home page; arriving from another page of the site skips straight in.
 
 ## Run locally
 
