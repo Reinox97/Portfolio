@@ -6,12 +6,10 @@
   border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
   font: 500 14px/1 var(--f-display); letter-spacing: .01em; color: var(--ink);
 }
-.menu-btn-i { position: relative; width: 22px; height: 10px; }
-.menu-btn-i i { position: absolute; left: 0; right: 0; height: 2px; border-radius: 1px; background: currentColor; transition: transform .5s var(--expo, cubic-bezier(.16,1,.3,1)); }
-.menu-btn-i i:first-child { top: 0; }
-.menu-btn-i i:last-child { bottom: 0; left: 8px; }
-@media (hover: hover) { .menu-btn:hover .menu-btn-i i:last-child { transform: translateX(-8px); } }
-.menu-btn:active .menu-btn-i i:first-child { transform: translateX(4px); }
+.menu-btn-i { display: block; width: 22px; height: 10px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menu-btn-i path { transition: transform .5s var(--expo, cubic-bezier(.16,1,.3,1)); }
+@media (hover: hover) { .menu-btn:hover .menu-btn-i .l2 { transform: translateX(-8px); } }
+.menu-btn:active .menu-btn-i .l1 { transform: translateX(4px); }
 
 @media (max-width: 760px) {
   .hdr .nav { display: none; }
