@@ -24,10 +24,10 @@ The name loader plays on every load and reload of the home page; arriving from a
 Serve the folder (clean URLs like `/about` need Vercel-style routing):
 
 ```
-npx vercel dev
+npx serve .
 ```
 
-or `npx serve .` (it also resolves `/about` to `about.html`).
+then open http://localhost:3000 (`serve` resolves `/about` to `about.html`, like Vercel).
 
 ## Deploy
 
