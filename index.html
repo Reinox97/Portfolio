@@ -275,29 +275,28 @@ html.anim .glance { position: sticky; top: 0; }
 .cases { padding-block: 104px 120px; scroll-margin-top: 0; }
 .cases-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; padding-bottom: 48px; }
 .cases-head h2 { font: 500 clamp(36px, 4.6vw, 64px)/1 var(--f-text); letter-spacing: -.05em; color: var(--ink-title); }
-/* the heading docks to the top while you read through the cases */
-.cases-pin {
-  position: sticky; top: 0; height: 0; z-index: 15;
-  margin-left: calc(-1 * max(var(--g), env(safe-area-inset-left, 0px)));
-  margin-right: calc(-1 * max(var(--g), env(safe-area-inset-right, 0px)));
+/* the heading itself stays fixed at the top while you read through the cases, and tightens into a bar */
+html.anim .cases-head, .cases-head.js {
+  position: sticky; top: 0; z-index: 15; pointer-events: none;
+  transform: translateY(var(--cp-y, 0px));
 }
-.cases-pin-in {
-  position: absolute; left: 0; right: 0; top: 0;
-  background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px);
-  box-shadow: 0 1px 0 var(--rule-faint);
-  transform: translateY(-110%); visibility: hidden;
-  transition: transform .6s var(--expo), visibility 0s linear .6s;
+.cases-head.ch-slide { transition: transform .6s var(--expo); }   /* only while the site header slides in or out */
+.cases-head > * { position: relative; z-index: 1; }
+.cases-head a { pointer-events: auto; }
+.cases-head h2 { transform-origin: 0 0; will-change: transform; }
+.cases-head > span { will-change: transform, opacity; }
+.ch-bg {
+  position: absolute; z-index: 0; top: 0; height: var(--ch-h, 100%);
+  left: var(--bg-l, 0px); width: var(--bg-w, 100%); background: var(--bg);
+  box-shadow: 0 1px 0 rgba(222, 221, 216, var(--q, 0));
 }
-html.cp-on .cases-pin-in { transform: translateY(var(--cp-y, 0px)); visibility: visible; transition: transform .6s var(--expo), visibility 0s; }
-.cases-pin-row { display: flex; align-items: center; gap: 12px 24px; min-height: 60px; }
-.cp-title { font: 500 clamp(19px, 1.7vw, 24px)/1.1 var(--f-text); letter-spacing: -.04em; color: var(--ink-title); white-space: nowrap; }
-.cp-title .sq { width: .2em; height: .2em; }
-.cp-count { display: flex; align-items: baseline; gap: 6px; margin-left: auto; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.cp-cur { display: inline-block; overflow: hidden; height: 1.5em; color: var(--ink); }
-.cp-cur span { display: block; }
-.cases-pin-row .lnk { font-size: 14px; padding-block: 6px; }
-.cp-bar { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform: scaleX(var(--cp-p, 0)); transform-origin: 0 50%; }
-@media (max-width: 560px) { .cases-pin-row .lnk { display: none; } .cases-pin-row { min-height: 54px; } }
+.ch-bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform: scaleX(var(--cp-p, 0)); transform-origin: 0 50%; opacity: var(--q, 0); }
+.ch-count {
+  position: absolute; z-index: 1; right: 0; top: 0; display: flex; align-items: center; gap: 6px; height: var(--bar-h, 60px);
+  font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; opacity: 0; pointer-events: none;
+}
+.ch-cur { display: inline-block; overflow: hidden; height: 1.5em; line-height: 1.5; color: var(--ink); }
+.ch-cur span { display: block; }
 .case-body { display: flex; flex-wrap: wrap; gap: 32px 64px; padding-block: 48px; }
 .vis {
   position: relative; display: block; flex: 1.5 1 480px; min-width: 0; max-width: 100%;
@@ -478,18 +477,10 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
   </div>
 
   <section class="cases sec" id="case-studies">
-    <div class="cases-pin">
-      <div class="cases-pin-in sec" id="casesPin" aria-hidden="true">
-        <div class="wrap cases-pin-row">
-          <p class="cp-title">Selected case studies<span class="sq"></span></p>
-          <p class="cp-count"><span class="cp-cur"><span>01</span></span><span class="cp-of">/ 04</span></p>
-          <a class="lnk" href="/case-studies" tabindex="-1">All case studies <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a>
-        </div>
-        <i class="cp-bar"></i>
-      </div>
-    </div>
     <div class="wrap">
       <div class="cases-head" data-r>
+        <i class="ch-bg" aria-hidden="true"><i class="ch-bar"></i></i>
+        <p class="ch-count" aria-hidden="true"><span class="ch-cur"><span>01</span></span><span>/ 04</span></p>
         <h2 class="split">Selected case studies<span class="sq pop keep"></span></h2>
         <span class="r-up" style="--d:250ms"><a class="lnk" href="/case-studies">All case studies <span class="arr" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9L9 3M4 3h5v5"/></svg></span></a></span>
       </div>
@@ -749,29 +740,73 @@ html.panels .exp, html.panels .foot-panel { box-shadow: 0 -24px 48px -32px rgba(
   }
 
   let lastY = window.scrollY, ticking = false, travel = 0;
-  const casesHead = $('.cases-head'), casesPin = $('#casesPin'), cpCur = $('.cp-cur'), caseList = $$('#case-studies .case');
-  let cpIdx = 0, cpOn = false;
+  /* "Selected case studies" stays fixed at the top through the cases and tightens into a bar as it docks */
+  const casesHead = $('.cases-head'), casesWrap = casesHead.parentElement, caseList = $$('#case-studies .case');
+  const chH2 = $('h2', casesHead), chLink = $(':scope > span', casesHead), chCount = $('.ch-count', casesHead), chCur = $('.ch-cur', casesHead);
+  casesHead.classList.add('js');
+  let chIdx = 0, chQ = -1, chM = null;
+  function measureHead() {
+    const narrow = window.innerWidth < 560, bar = narrow ? 56 : 64;
+    const fs = parseFloat(getComputedStyle(chH2).fontSize);
+    chM = {
+      narrow, bar, H: casesHead.offsetHeight,
+      s: (narrow ? 22 : 26) / fs,
+      h2Top: chH2.offsetTop, h2H: chH2.offsetHeight,
+      lkTop: chLink.offsetTop, lkH: chLink.offsetHeight
+    };
+    casesHead.style.setProperty('--bar-h', bar + 'px');
+    casesHead.style.setProperty('--bg-l', (-casesWrap.getBoundingClientRect().left) + 'px');
+    casesHead.style.setProperty('--bg-w', root.clientWidth + 'px');
+  }
+  let chHdr = null, chSlideT = 0;
   function dockCases(vh) {
-    const hdrH = hdr.classList.contains('is-hidden') ? 0 : hdr.offsetHeight;
-    const head = casesHead.getBoundingClientRect(), sec = casesHead.closest('.cases').getBoundingClientRect();
-    const last = caseList[caseList.length - 1].getBoundingClientRect();
-    const on = !root.classList.contains('loading') && head.bottom < hdrH + 4 && last.bottom > hdrH + casesPin.offsetHeight + 40;
-    if (on !== cpOn) { cpOn = on; root.classList.toggle('cp-on', on); }
-    root.style.setProperty('--cp-y', hdrH + 'px');
-    if (!on) return;
+    if (!chM) measureHead();
+    const shown = !hdr.classList.contains('is-hidden'), hdrH = shown ? hdr.offsetHeight : 0;
+    if (chHdr !== null && shown !== chHdr) {          // the site header is coming or going: glide with it
+      casesHead.classList.add('ch-slide'); clearTimeout(chSlideT);
+      chSlideT = setTimeout(() => casesHead.classList.remove('ch-slide'), 650);
+    }
+    chHdr = shown;
+    const wTop = casesWrap.getBoundingClientRect().top;
+    // sticks at the top of the screen, or just under the site header while that is showing
+    const t = clamp(hdrH - wTop, 0, hdrH);
+    casesHead.style.setProperty('--cp-y', t.toFixed(1) + 'px');
+    // how far the heading has travelled past its own place: 0 = resting, 1 = docked bar
+    const q = clamp((Math.max(wTop, 0) + t - wTop) / 140);
+    if (Math.abs(q - chQ) > 0.001) {
+      chQ = q;
+      const m = chM, e = q * q * (3 - 2 * q), sc = 1 + (m.s - 1) * e;
+      const h2Y = (m.bar / 2 - (m.h2H * m.s) / 2 - m.h2Top) * e;
+      chH2.style.transform = `translate3d(0, ${h2Y.toFixed(2)}px, 0) scale(${sc.toFixed(4)})`;
+      if (m.narrow) {
+        chLink.style.opacity = (1 - Math.min(1, q * 2.2)).toFixed(3);
+        chLink.style.transform = '';
+        chLink.style.visibility = q > 0.5 ? 'hidden' : '';
+        chCount.style.right = '0px';
+      } else {
+        const lkY = (m.bar / 2 - m.lkH / 2 - m.lkTop) * e;
+        chLink.style.opacity = ''; chLink.style.visibility = '';
+        chLink.style.transform = `translate3d(0, ${lkY.toFixed(2)}px, 0)`;
+        chCount.style.right = (chLink.offsetWidth + 28) + 'px';
+      }
+      chCount.style.opacity = clamp((q - 0.6) / 0.4).toFixed(3);
+      casesHead.style.setProperty('--q', e.toFixed(3));
+      casesHead.style.setProperty('--ch-h', (m.H + (m.bar - m.H) * e).toFixed(1) + 'px');
+    }
+    if (q < 1) return;
     // which case you're reading, and how far through the list you are
     let idx = 0;
     caseList.forEach((c, k) => { if (c.getBoundingClientRect().top < vh * 0.55) idx = k; });
-    const first = caseList[0].getBoundingClientRect();
-    casesPin.style.setProperty('--cp-p', clamp((vh * 0.55 - first.top) / Math.max(1, last.bottom - first.top)).toFixed(4));
-    if (idx !== cpIdx) {
-      const dir = idx > cpIdx ? 1 : -1; cpIdx = idx;
+    const first = caseList[0].getBoundingClientRect(), last = caseList[caseList.length - 1].getBoundingClientRect();
+    casesHead.style.setProperty('--cp-p', clamp((vh * 0.55 - first.top) / Math.max(1, last.bottom - first.top)).toFixed(4));
+    if (idx !== chIdx) {
+      const dir = idx > chIdx ? 1 : -1; chIdx = idx;
       const next = document.createElement('span'); next.textContent = String(idx + 1).padStart(2, '0');
-      const prev = cpCur.firstElementChild;
-      cpCur.replaceChildren(next);
+      chCur.replaceChildren(next);
       if (anim) next.animate([{ transform: `translateY(${dir * 100}%)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 500, easing: 'cubic-bezier(.16,1,.3,1)' });
     }
   }
+  window.addEventListener('resize', () => { chH2.style.transform = ''; chLink.style.transform = ''; chM = null; chQ = -1; });
   function onScroll() {
     const y = window.scrollY, vh = window.innerHeight;
 
