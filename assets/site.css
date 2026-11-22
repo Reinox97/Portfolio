@@ -229,6 +229,11 @@ html.anim.ready .hdr [data-h] {
 .xp { padding-bottom: clamp(88px, 9.7vw, 140px); }
 .xp-in { display: flex; flex-wrap: wrap; gap: 32px 64px; }
 .xp-side { flex: 1 1 300px; max-width: 372px; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
+/* the title stays put while the roles scroll past, then leaves with the section */
+@media (min-width: 900px) {
+  .xp-in { align-items: flex-start; }
+  .xp-side { position: sticky; top: calc(var(--hdr-off, 0px) + 48px); transition: top .6s var(--expo); }
+}
 .xp-roles { flex: 2 1 560px; min-width: 0; max-width: 764px; margin-left: auto; }
 .xp-role .rule { background: var(--rule-soft); }
 .xp-role-in { display: flex; flex-direction: column; gap: 12px; padding-block: 32px; }

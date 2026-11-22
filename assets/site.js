@@ -36,6 +36,7 @@
     if (y < 140 || travel < -12) hdr.classList.remove('is-hidden');
     else if (travel > 40) hdr.classList.add('is-hidden');
     hdr.classList.toggle('is-floating', y > 140);
+    root.style.setProperty('--hdr-off', hdr.classList.contains('is-hidden') ? '0px' : hdr.offsetHeight + 'px');
     lastY = y;
     if (anim) pars.forEach(img => {              // a slow drift inside the frame
       const r = img.parentNode.getBoundingClientRect();
