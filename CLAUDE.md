@@ -29,7 +29,7 @@ npx serve .
 
 ## Open items
 
-- Real email, CV link and LinkedIn URL go in `assets/links.js`.
+- CV link still to add in `assets/links.js` (email and LinkedIn are set).
 - Case studies 03–07 have no pages yet; they link to the contact section as "Request a walkthrough".
 - Copy to confirm: Settlement/Compliance timelines (Figma frames disagree), Parthian revenue (₦1B vs $1B), Settlement impact figures (55% / 90% read like they belong to another project), Format 3 description.
 
