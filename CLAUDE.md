@@ -12,11 +12,11 @@ npx serve .
 ## Files
 
 - `index.html` — home page. Has its own inline CSS and JS: the name loader, pinned hero → "At a glance" screen, scroll snapping/gearing, the case list with the docked "Selected case studies" heading, and the pinned How I work / Experience / footer panels on large screens.
-- `about.html`, `case-studies.html`, `case-studies/settlement-control-room.html`, `case-studies/compliance.html` — inner pages. They share `assets/site.css` and `assets/site.js`.
+- `about.html`, `case-studies.html`, `case-studies/settlement-control-room.html`, `case-studies/compliance.html`, `contact.html` — inner pages. They share `assets/site.css` and `assets/site.js`.
 - `assets/pt.js` — page transitions (the page closes on a hairline, the next opens from it). Loaded in `<head>` on every page.
 - `assets/menu.css`, `assets/menu.js` — mobile menu (below 760px). Built from the header's own links.
-- `assets/links.js` — email, LinkedIn and CV links for every page. Empty value = buttons show "Coming soon".
-- The header and footer markup is repeated in each HTML file. Change all five when editing them.
+- `assets/links.js` — email, phone, LinkedIn and CV links for every page. Empty value = buttons show "Coming soon".
+- The header and footer markup is repeated in each HTML file. Change all six when editing them (the contact page has only the credit line as its footer).
 
 ## Design rules
 

@@ -12,9 +12,32 @@
   $$('[data-link]').forEach(a => {
     const v = LINKS[a.dataset.link];
     if (!v) { a.setAttribute('data-soon', ''); a.removeAttribute('target'); return; }
-    a.href = a.dataset.link === 'email' ? 'mailto:' + v : v;
-    if (a.dataset.link !== 'email') { a.target = '_blank'; a.rel = 'noopener'; }
+    const k = a.dataset.link;
+    a.href = k === 'email' ? 'mailto:' + v : k === 'phone' ? 'tel:' + v.replace(/\s/g, '') : v;
+    if (k !== 'email' && k !== 'phone') { a.target = '_blank'; a.rel = 'noopener'; }
   });
+
+  /* ── Copy buttons (contact page) ── */
+  const copyText = t => navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(t) : new Promise((res, rej) => {
+    const ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.append(ta); ta.select(); const ok = document.execCommand('copy'); ta.remove(); ok ? res() : rej();
+  });
+  $$('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+    const label = btn.querySelector('span'), what = btn.closest('.ct-row')?.querySelector('.ct-lab')?.lastChild.textContent.trim() || 'Text';
+    copyText(btn.dataset.copy).then(() => {
+      btn.classList.add('done'); label.textContent = 'Copied';
+      const t = document.getElementById('toast'); t.textContent = what + ' copied'; t.classList.add('on');
+      clearTimeout(btn._t); btn._t = setTimeout(() => { btn.classList.remove('done'); label.textContent = 'Copy'; t.classList.remove('on'); }, 1800);
+    }, () => {});
+  }));
+
+  /* ── Local time in Lagos ── */
+  const clocks = $$('[data-clock]');
+  if (clocks.length) {
+    let fmt; try { fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Lagos', hour: '2-digit', minute: '2-digit' }); } catch (e) {}
+    const tick = () => clocks.forEach(c => { c.textContent = fmt ? fmt.format(new Date()) : ''; });
+    tick(); setInterval(tick, 15000);
+  }
 
   /* ── "Coming soon" toast ── */
   const toast = $('#toast'); let toastT;

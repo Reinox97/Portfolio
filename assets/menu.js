@@ -33,6 +33,7 @@
       <p class="mf-l m-rise">Get in touch</p>
       <div class="mf-links m-rise">
         <a data-mlink="email" href="#contact">Email ${OUT}</a>
+        <a data-mlink="phone" href="#contact">Call ${OUT}</a>
         <a data-mlink="linkedin" href="#contact">LinkedIn ${OUT}</a>
         <a data-mlink="cv" href="#contact">CV ${OUT}</a>
       </div>
@@ -46,8 +47,9 @@
   menu.querySelectorAll('[data-mlink]').forEach(a => {
     const v = LINKS[a.dataset.mlink];
     if (!v) { a.setAttribute('data-soon', ''); return; }
-    a.href = a.dataset.mlink === 'email' ? 'mailto:' + v : v;
-    if (a.dataset.mlink !== 'email') { a.target = '_blank'; a.rel = 'noopener'; }
+    const k = a.dataset.mlink;
+    a.href = k === 'email' ? 'mailto:' + v : k === 'phone' ? 'tel:' + v.replace(/\s/g, '') : v;
+    if (k !== 'email' && k !== 'phone') { a.target = '_blank'; a.rel = 'noopener'; }
   });
 
   // local time in Lagos

@@ -9,6 +9,7 @@ Personal portfolio site. Static HTML, CSS and JavaScript, no build step.
 | `/case-studies` | `case-studies.html` |
 | `/case-studies/settlement-control-room` | `case-studies/settlement-control-room.html` |
 | `/case-studies/compliance` | `case-studies/compliance.html` |
+| `/contact` | `contact.html` |
 
 Shared files in `assets/`:
 
