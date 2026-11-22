@@ -500,15 +500,8 @@ html.anim .rings:not(.in) .ring { transform: scale(.6); opacity: 0; }
   .ct-row:hover .ct-go { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
   .ct-row:hover .ct-go svg { transform: translate(2px, -2px); }
 }
-.ct-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 48px; margin-top: clamp(56px, 6vw, 88px); }
-.ct-info div { display: flex; flex-direction: column; gap: 8px; }
-.ct-info dt { font-size: 14px; color: var(--muted); }
-.ct-info dd { margin: 0; font-size: 17px; line-height: 1.6; color: var(--ink); font-variant-numeric: tabular-nums; }
-.ct-dot { display: inline-block; width: 7px; height: 7px; margin-right: 10px; border-radius: 50%; background: var(--accent); vertical-align: 2px; animation: ct-pulse 2.4s ease-in-out infinite; }
-@keyframes ct-pulse { 50% { opacity: .3; } }
 @media (max-width: 760px) {
   .ct-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "lab act" "val val"; align-items: center; }
   .ct-lab { grid-area: lab; } .ct-val { grid-area: val; } .ct-act { grid-area: act; }
   .ct-go { width: 44px; height: 44px; }
-  .ct-info { grid-template-columns: 1fr; }
 }
