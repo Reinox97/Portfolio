@@ -1,6 +1,6 @@
 # Portfolio — notes for Claude Code
 
-Ifeoluwa Olatunde's portfolio. Static HTML/CSS/JS, no build step, no framework. Deployed on Vercel: every push to `main` goes to production (portfolio-reinox.vercel.app). `vercel.json` turns on clean URLs, so links are written as `/about`, `/case-studies/compliance`, etc.
+Ifeoluwa Olatunde's portfolio. Static HTML/CSS/JS, no build step, no framework. Deployed on Vercel: every push to `main` goes to production (ifeoluwaolatunde.com, also portfolio-reinox.vercel.app). `vercel.json` turns on clean URLs, so links are written as `/about`, `/case-studies/compliance`, etc.
 
 ## Run it
 
