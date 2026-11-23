@@ -58,6 +58,10 @@ h1 i { display: inline-block; width: .14em; height: .14em; margin-left: .04em; b
 .job li::before { content: ""; position: absolute; left: 0; top: .62em; width: 1.6mm; height: 1.6mm; background: var(--accent); }
 .job li strong { color: var(--ink); font-weight: 600; }
 
+.rows { display: grid; gap: 1.6mm; }
+.rows li { color: var(--body); }
+.rows strong { color: var(--ink); font-weight: 600; }
+.rows a span { color: var(--muted); border-bottom: .5pt solid var(--rule); white-space: nowrap; }
 .work { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
 .card { display: block; padding: 3.2mm 3.6mm; background: var(--band); border-radius: 1.2mm; }
 .card small { font-size: 7.6pt; color: var(--muted); letter-spacing: .04em; }
@@ -100,7 +104,7 @@ h1 i { display: inline-block; width: .14em; height: .14em; margin-left: .04em; b
     <p class="lab">Experience</p>
     <div>
       <article class="job">
-        <div class="job-h"><h3>Payaza Africa (78 Financials)</h3><time>2021 — Present</time></div>
+        <div class="job-h"><h3>Payaza Africa (78 Financials)</h3><time>2021 – Present</time></div>
         <p class="as">Product Design Lead</p>
         <ul>
           <li>Lead a team of 10 product designers across payments, onboarding, FX and treasury products.</li>
@@ -118,14 +122,14 @@ h1 i { display: inline-block; width: .14em; height: .14em; margin-left: .04em; b
         </ul>
       </article>
       <article class="job">
-        <div class="job-h"><h3>Woven Finance</h3><time>2020 — 2021</time></div>
+        <div class="job-h"><h3>Woven Finance</h3><time>2020 – 2021</time></div>
         <p class="as">Product Designer</p>
         <ul>
           <li>Led the end-to-end design of Woven’s virtual accounts product, used by <strong>100+ businesses</strong> and generating <strong>$1M+ in revenue</strong>.</li>
         </ul>
       </article>
       <article class="job">
-        <div class="job-h"><h3>Parthian Partners</h3><time>2019 — 2020</time></div>
+        <div class="job-h"><h3>Parthian Partners</h3><time>2019 – 2020</time></div>
         <p class="as">Product Designer</p>
         <ul>
           <li>Designed the Equities feature on the i-invest app, named <strong>“Online Securities Platform of the Year”</strong>. It generated <strong>₦1B in revenue</strong> within nine months of launch.</li>
@@ -136,28 +140,20 @@ h1 i { display: inline-block; width: .14em; height: .14em; margin-left: .04em; b
 
   <section class="sec">
     <p class="lab">Selected work</p>
-    <div class="work">
-      <a class="card" href="https://portfolio-reinox.vercel.app/case-studies/settlement-control-room">
-        <small>Case study 01 · Payaza BackOffice</small>
-        <h4>The Settlement Control Room</h4>
-        <div class="out"><b>95% faster resolution</b><span>Read case study ↗</span></div>
-      </a>
-      <a class="card" href="https://portfolio-reinox.vercel.app/case-studies/compliance">
-        <small>Case study 02 · Payaza BackOffice</small>
-        <h4>Rethinking Payaza’s compliance</h4>
-        <div class="out"><b>Onboarding · Risk</b><span>Read case study ↗</span></div>
-      </a>
-    </div>
+    <ul class="rows">
+      <li><a href="https://portfolio-reinox.vercel.app/case-studies/settlement-control-room"><strong>The Settlement Control Room</strong> (Payaza BackOffice): 95% faster settlement resolution. <span>portfolio-reinox.vercel.app/case-studies/settlement-control-room</span></a></li>
+      <li><a href="https://portfolio-reinox.vercel.app/case-studies/compliance"><strong>Rethinking Payaza’s compliance</strong> (Payaza BackOffice): risk-tiered merchant onboarding. <span>portfolio-reinox.vercel.app/case-studies/compliance</span></a></li>
+    </ul>
   </section>
 
   <section class="sec">
-    <p class="lab">What I bring</p>
-    <div class="skills">
-      <div><h4>Product design</h4><p>End-to-end flows, interactive prototypes, dashboards &amp; data-heavy UI, UX audits and user testing</p></div>
-      <div><h4>Design leadership</h4><p>Leading a design team, design operations, cross-functional alignment</p></div>
-      <div><h4>Domain depth</h4><p>Payments infrastructure, merchant onboarding &amp; KYC, FX, treasury &amp; settlement</p></div>
-      <div><h4>Toolkit</h4><p>Figma, Paper, Claude, Atlassian tool stack, Maze, Miro, Mural</p></div>
-    </div>
+    <p class="lab">Skills</p>
+    <ul class="rows">
+      <li><strong>Product design:</strong> end-to-end user flows, interactive prototypes, dashboards and data-heavy UI, UX audits, user research and testing</li>
+      <li><strong>Design leadership:</strong> leading a design team, design operations, cross-functional alignment</li>
+      <li><strong>Domain:</strong> payments infrastructure, merchant onboarding and KYC, FX, treasury and settlement</li>
+      <li><strong>Tools:</strong> Figma, Paper, Claude, Jira and Confluence (Atlassian), Maze, Miro, Mural</li>
+    </ul>
   </section>
 
   <footer class="foot">
