@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ifeoluwa Olatunde — CV</title>
+<style>
+@font-face { font-family: 'DM Sans'; font-weight: 400; src: url(node_modules/@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 500; src: url(node_modules/@fontsource/dm-sans/files/dm-sans-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 600; src: url(node_modules/@fontsource/dm-sans/files/dm-sans-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Jakarta'; font-weight: 400; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Jakarta'; font-weight: 500; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Jakarta'; font-weight: 600; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Jakarta'; font-weight: 700; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2) format('woff2'); }
+/* naira sign lives in the latin-ext file */
+@font-face { font-family: 'Naira'; font-weight: 400 700; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+20A6; }
+
+@page { size: A4; margin: 0; }
+:root {
+  --ink: #16181C; --title: #22231F; --body: #3F413C; --muted: #6B6D66; --quiet: #8A8C85;
+  --rule: #DEDDD8; --rule-soft: #E9E9E7; --accent: #8BAA3C; --accent-ink: #5E7A1E; --band: #F8F7F5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fff; }
+body { font-family: 'Naira', 'DM Sans', sans-serif; color: var(--ink); font-size: 8.7pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.page { width: 210mm; height: 297mm; padding: 12mm 15mm 12mm; position: relative; overflow: hidden; }
+
+/* header */
+.top { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: end; padding-bottom: 5.5mm; }
+h1 { font: 500 30pt/1 'DM Sans'; letter-spacing: -.055em; color: var(--title); }
+h1 i { display: inline-block; width: .14em; height: .14em; margin-left: .04em; background: var(--accent); }
+.role { margin-top: 3mm; font: 500 10.5pt/1.3 'Jakarta'; white-space: nowrap; letter-spacing: -.01em; color: var(--ink); }
+.role span { color: var(--muted); font-weight: 400; }
+.contact { display: grid; gap: 1.1mm; text-align: right; font-size: 8.4pt; }
+.contact a { display: inline-flex; align-items: center; justify-content: flex-end; gap: 2.2mm; color: var(--ink); }
+.contact a b { font-weight: 400; color: var(--muted); font-size: 7.6pt; letter-spacing: .06em; text-transform: uppercase; }
+.contact a span { border-bottom: .5pt solid var(--rule); }
+.rule { height: .6pt; background: var(--rule); }
+
+/* sections: label column + content, like the site */
+.sec { display: grid; grid-template-columns: 30mm 1fr; gap: 5mm; padding: 3.8mm 0; border-top: .6pt solid var(--rule); }
+.sec:first-of-type { border-top: 0; }
+.lab { font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: .6mm; }
+.lab em { display: block; font-style: normal; font-size: 7.4pt; color: var(--quiet); margin-bottom: 1mm; letter-spacing: .04em; }
+
+.lead { font: 400 10.2pt/1.48 'Jakarta'; letter-spacing: -.012em; color: var(--ink); }
+.lead strong { font-weight: 600; }
+
+.job + .job { margin-top: 3.2mm; padding-top: 3.2mm; border-top: .5pt solid var(--rule-soft); }
+.job-h { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.job-h h3 { font: 600 10.6pt/1.3 'Jakarta'; letter-spacing: -.015em; }
+.job-h time { font-size: 8.2pt; color: var(--muted); white-space: nowrap; }
+.as { margin-top: .3mm; font-weight: 500; color: var(--accent-ink); font-size: 8.8pt; }
+.job ul { margin-top: 1.5mm; display: grid; gap: .9mm; }
+.job li { position: relative; padding-left: 4mm; color: var(--body); }
+.job li::before { content: ""; position: absolute; left: 0; top: .62em; width: 1.6mm; height: 1.6mm; background: var(--accent); }
+.job li strong { color: var(--ink); font-weight: 600; }
+
+.work { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.card { display: block; padding: 3.2mm 3.6mm; background: var(--band); border-radius: 1.2mm; }
+.card small { font-size: 7.6pt; color: var(--muted); letter-spacing: .04em; }
+.card h4 { margin-top: .4mm; font: 600 9.8pt/1.3 'Jakarta'; letter-spacing: -.015em; }
+.card p { margin-top: .8mm; font-size: 8.3pt; color: var(--body); line-height: 1.5; }
+.card .out { margin-top: 1.8mm; display: flex; justify-content: space-between; align-items: center; gap: 3mm; font-size: 8.2pt; white-space: nowrap; }
+.card .out b { font-weight: 600; color: var(--accent-ink); }
+.card .out span { color: var(--muted); border-bottom: .5pt solid var(--rule); }
+
+.skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+.skills h4 { font: 600 9pt/1.3 'Jakarta'; padding-top: 1.6mm; border-top: .6pt solid var(--ink); }
+.skills p { margin-top: 1.2mm; color: var(--body); font-size: 8.2pt; line-height: 1.45; }
+
+.foot { position: absolute; left: 15mm; right: 15mm; bottom: 7.5mm; display: flex; justify-content: space-between; font-size: 7.8pt; color: var(--quiet); }
+.foot a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <div>
+      <h1>Ifeoluwa Olatunde<i></i></h1>
+      <p class="role">Product Design Lead <span>· Fintech &amp; payments · Lagos, Nigeria</span></p>
+    </div>
+    <div class="contact">
+      <a href="mailto:ifeoluwaolatunde97@outlook.com"><b>Email</b><span>ifeoluwaolatunde97@outlook.com</span></a>
+      <a href="tel:+2349029311001"><b>Phone</b><span>+234 902 931 1001</span></a>
+      <a href="https://www.linkedin.com/in/ifeoluwa-olatunde/"><b>LinkedIn</b><span>linkedin.com/in/ifeoluwa-olatunde</span></a>
+      <a href="https://portfolio-reinox.vercel.app"><b>Portfolio</b><span>portfolio-reinox.vercel.app</span></a>
+    </div>
+  </header>
+  <div class="rule"></div>
+
+  <section class="sec">
+    <p class="lab">Profile</p>
+    <p class="lead">Product Design Lead with <strong>7+ years in fintech</strong>. I lead a team of 10 designers at Payaza Africa (78 Financials), working hand in hand with Engineering, Product, CX and Marketing. I know the infrastructure underneath the interface — how money actually moves — and that is what lets me design for how people feel about it.</p>
+  </section>
+
+  <section class="sec">
+    <p class="lab">Experience</p>
+    <div>
+      <article class="job">
+        <div class="job-h"><h3>Payaza Africa (78 Financials)</h3><time>2021 — Present</time></div>
+        <p class="as">Product Design Lead</p>
+        <ul>
+          <li>Lead a team of 10 product designers across payments, onboarding, FX and treasury products.</li>
+          <li>Designed the <strong>Settlement Control Room</strong>, giving Finance one view of every collection, batch and payout, with maker–checker approvals and a full activity trail. <strong>Settlement resolution got 95% faster</strong> within three months of rollout.</li>
+          <li>Turned merchant compliance into a <strong>graduated, risk-tiered model</strong> with automatic BVN and CAC checks, so merchants can go live on a basic tier while upgrades are reviewed.</li>
+          <li>Redesigned business KYC with progressive disclosure and document guidance, reaching <strong>93.78% completion</strong>.</li>
+          <li>Designed tools for FX rate management, liquidity and rail automation, and the Payaza Compass analytics dashboard. Built the team’s rituals, SOPs and onboarding.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-h"><h3>Format 3</h3><time>2024</time></div>
+        <p class="as">Senior Product Designer</p>
+        <ul>
+          <li>End-to-end product work for Format 3’s clients, from early flows and prototypes to high-fidelity, build-ready UI.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-h"><h3>Woven Finance</h3><time>2020 — 2021</time></div>
+        <p class="as">Product Designer</p>
+        <ul>
+          <li>Led the end-to-end design of Woven’s virtual accounts product, used by <strong>100+ businesses</strong> and generating <strong>$1M+ in revenue</strong>.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-h"><h3>Parthian Partners</h3><time>2019 — 2020</time></div>
+        <p class="as">Product Designer</p>
+        <ul>
+          <li>Designed the Equities feature on the i-invest app, named <strong>“Online Securities Platform of the Year”</strong>. It generated <strong>₦1B in revenue</strong> within nine months of launch.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="lab">Selected work</p>
+    <div class="work">
+      <a class="card" href="https://portfolio-reinox.vercel.app/case-studies/settlement-control-room">
+        <small>Case study 01 · Payaza BackOffice</small>
+        <h4>The Settlement Control Room</h4>
+        <div class="out"><b>95% faster resolution</b><span>Read case study ↗</span></div>
+      </a>
+      <a class="card" href="https://portfolio-reinox.vercel.app/case-studies/compliance">
+        <small>Case study 02 · Payaza BackOffice</small>
+        <h4>Rethinking Payaza’s compliance</h4>
+        <div class="out"><b>Onboarding · Risk</b><span>Read case study ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="lab">What I bring</p>
+    <div class="skills">
+      <div><h4>Product design</h4><p>End-to-end flows, interactive prototypes, dashboards &amp; data-heavy UI, UX audits and user testing</p></div>
+      <div><h4>Design leadership</h4><p>Leading a design team, design operations, cross-functional alignment</p></div>
+      <div><h4>Domain depth</h4><p>Payments infrastructure, merchant onboarding &amp; KYC, FX, treasury &amp; settlement</p></div>
+      <div><h4>Toolkit</h4><p>Figma, Paper, Claude, Atlassian tool stack, Maze, Miro, Mural</p></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Away from the screen: gaming (FC Pro Player), piano and swimming.</span>
+    <a href="https://portfolio-reinox.vercel.app">portfolio-reinox.vercel.app</a>
+  </footer>
+</div>
+</body>
+</html>

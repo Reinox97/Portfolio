@@ -3,5 +3,5 @@ window.IO_LINKS = {
   email: 'ifeoluwaolatunde97@outlook.com',
   phone: '+2349029311001',
   linkedin: 'https://www.linkedin.com/in/ifeoluwa-olatunde/',
-  cv: ''                                      // link to your CV (PDF or page)
+  cv: '/assets/Ifeoluwa-Olatunde-CV.pdf'
 };

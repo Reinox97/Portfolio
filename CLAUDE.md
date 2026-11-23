@@ -18,6 +18,10 @@ npx serve .
 - `assets/links.js` — email, phone, LinkedIn and CV links for every page. Empty value = buttons show "Coming soon".
 - The header and footer markup is repeated in each HTML file. Change all six when editing them (the contact page has only the credit line as its footer).
 
+## CV
+
+`cv/cv.html` is the source of `assets/Ifeoluwa-Olatunde-CV.pdf` (one A4 page). To rebuild: in `cv/`, run `npm i @fontsource/plus-jakarta-sans @fontsource/dm-sans playwright`, then `node make.js`, and copy the PDF into `assets/`. `cv/` is kept off the live site by `.vercelignore`.
+
 ## Design rules
 
 - Fonts: Plus Jakarta Sans (display), DM Sans (text).
@@ -29,7 +33,6 @@ npx serve .
 
 ## Open items
 
-- CV link still to add in `assets/links.js` (email and LinkedIn are set).
 - Case studies 03–07 have no pages yet; they link to the contact section as "Request a walkthrough".
 - Copy to confirm: Settlement/Compliance timelines (Figma frames disagree), Parthian revenue (₦1B vs $1B), Settlement impact figures (55% / 90% read like they belong to another project), Format 3 description.
 
