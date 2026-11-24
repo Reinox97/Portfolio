@@ -18,6 +18,10 @@ npx serve .
 - `assets/links.js` — email, phone, LinkedIn and CV links for every page. Empty value = buttons show "Coming soon".
 - The header and footer markup is repeated in each HTML file. Change all six when editing them (the contact page has only the credit line as its footer).
 
+## Analytics
+
+Vercel Web Analytics is loaded by the script tags at the end of each page's `<head>` (`/_vercel/insights/script.js`). It's the plain-HTML version of `@vercel/analytics`; there's no bundler, so no npm package is needed. Visits show in the Vercel project's Analytics tab once it's enabled there.
+
 ## CV
 
 `cv/cv.html` is the source of `assets/Ifeoluwa-Olatunde-CV.pdf` (one A4 page). To rebuild: in `cv/`, run `npm i @fontsource/plus-jakarta-sans @fontsource/dm-sans playwright`, then `node make.js`, and copy the PDF into `assets/`. `cv/` is kept off the live site by `.vercelignore`.
