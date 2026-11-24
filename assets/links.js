@@ -4,5 +4,5 @@ window.IO_LINKS = {
   phone: '+2349029311001',
   linkedin: 'https://www.linkedin.com/in/ifeoluwa-olatunde/',
   cv: '/assets/Ifeoluwa-Olatunde-CV.pdf',
-  clarity: ''                                 // Microsoft Clarity project ID (Clarity > Settings > Overview)
+  clarity: 'zio2go2g9d'                       // Microsoft Clarity project ID (Clarity > Settings > Overview)
 };
