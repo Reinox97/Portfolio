@@ -22,6 +22,8 @@ npx serve .
 
 Vercel Web Analytics is loaded by the script tags at the end of each page's `<head>` (`/_vercel/insights/script.js`). It's the plain-HTML version of `@vercel/analytics`; there's no bundler, so no npm package is needed. Visits show in the Vercel project's Analytics tab once it's enabled there.
 
+Microsoft Clarity (heatmaps, session replays) is loaded by `assets/clarity.js` on every page, the plain-HTML version of `@microsoft/clarity`. It stays off until `clarity` in `assets/links.js` holds the project ID.
+
 ## CV
 
 `cv/cv.html` is the source of `assets/Ifeoluwa-Olatunde-CV.pdf` (one A4 page). To rebuild: in `cv/`, run `npm i @fontsource/plus-jakarta-sans @fontsource/dm-sans playwright`, then `node make.js`, and copy the PDF into `assets/`. `cv/` is kept off the live site by `.vercelignore`.
