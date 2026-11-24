@@ -3,5 +3,6 @@ window.IO_LINKS = {
   email: 'ifeoluwaolatunde97@outlook.com',
   phone: '+2349029311001',
   linkedin: 'https://www.linkedin.com/in/ifeoluwa-olatunde/',
-  cv: '/assets/Ifeoluwa-Olatunde-CV.pdf'
+  cv: '/assets/Ifeoluwa-Olatunde-CV.pdf',
+  ga4: ''                                     // Google Analytics measurement ID, e.g. 'G-XXXXXXXXXX'
 };
